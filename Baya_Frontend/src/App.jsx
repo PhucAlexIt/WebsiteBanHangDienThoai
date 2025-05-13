@@ -36,7 +36,11 @@ const App = () => {
   return (
     <>
       <HeaderComp />
-      <Outlet />
+      <div className='body_home'>
+        <div className='main_container'>
+          <Outlet />
+        </div>
+      </div>
       <FooterComp />
 
     </>

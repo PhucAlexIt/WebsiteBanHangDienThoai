@@ -1,4 +1,7 @@
-
+import "../assets/css/pages/productDetail.css"
+import "../assets/css/pages/productSearch.css"
+import "../assets/css/pages/storeMap.css"
+import "../assets/css/pages/article.css"
 
 const StoreAddress = () => {
     return (
@@ -8,7 +11,14 @@ const StoreAddress = () => {
 
                 <div className="article_alpha bg-while store-alpha">
                     <div className="store_address">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d108576.81174657971!2d106.6037042771911!3d10.7236097633709!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317528a7e0d52e65%3A0x68d98161109b3397!2zQ8O0bmcgVHkgQ-G7lSBQaOG6p24gTuG7mWkgVGjhuqV0IEJheWE!5e0!3m2!1svi!2s!4v1732612353356!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d108576.81174657971!2d106.6037042771911!3d10.7236097633709!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317528a7e0d52e65%3A0x68d98161109b3397!2zQ8O0bmcgVHkgQ-G7lSBQaOG6p24gTuG7mWkgVGjhuqV0IEJheWE!5e0!3m2!1svi!2s!4v1732612353356!5m2!1svi!2s"
+                            width="600"
+                            height="450"
+                            style={{ border: '0px' }}
+                            loading="lazy"
+                            referrerPolicy="no-referrer-when-downgrade"
+                        />
                     </div>
                     <div className="store_content">
                         <p><img src="https://cdn.tgdd.vn/Products/Images/42/58003/tick.png" alt="" />Nhân viên niềm nở đón

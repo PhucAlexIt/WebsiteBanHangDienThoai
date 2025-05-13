@@ -7,7 +7,7 @@ const HeaderComp = () => {
                 <div className="header_main">
 
                     <div className="header_logo">
-                        <a to="index.html"><img src="./src/assets/images/logo/logo-final (3) (1).png" alt="logo" /> </a>
+                        <Link to="/"><img src="./src/assets/images/logo/logo-final (3) (1).png" alt="logo" /> </Link>
                     </div>
                     <div to="" className="header_item item_category " onclick="openCategory()">
 
@@ -51,7 +51,7 @@ const HeaderComp = () => {
                         </div>
 
                     </Link>
-                    <Link to="storeAddress.html" target="_blank" className="header_address ">
+                    <Link to="/store-address" target="_blank" className="header_address ">
                         <div className="address_alpha">
                             <div className="item_box ">
                                 <i className="fa-solid fa-location-dot"></i>
