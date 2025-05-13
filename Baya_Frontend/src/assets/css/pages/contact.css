@@ -1,0 +1,111 @@
+.content {
+    border-right: 1px #ece5e5 solid;
+
+}
+
+.content h4 {
+    margin: 1rem 0;
+    font-size: 1.8rem;
+}
+
+.form {
+
+    padding: 20px;
+    border-radius: 8px;
+}
+
+textarea:focus-visible {
+    outline: 2px solid #b2d2f4;
+    border: 1px solid #b2d2f4;
+}
+
+input:focus-visible {
+    outline: 2px solid #b2d2f4;
+    border: 1px solid #b2d2f4;
+}
+
+.form textarea {
+    font-family: Arial, Helvetica, sans-serif;
+    width: 100%;
+    height: 10rem;
+    margin-bottom: 1rem;
+    border: 1px solid #cdc4c4;
+    border-radius: 5px;
+    padding: 0.8rem;
+    font-size: 1rem;
+}
+
+
+
+.form-group {
+    display: flex;
+    gap: 1rem;
+    flex: 1;
+    margin-bottom: 1rem;
+}
+
+.gender {
+    display: flex;
+    gap: 1rem;
+
+}
+
+.form-group>* {
+    flex-basis: 50%;
+}
+
+.form-group .infor_contact {
+    width: 50%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 0.7rem 1.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.sidebar {
+
+    padding: 1.4rem;
+}
+
+.sidebar h3 {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+
+
+.sidebar ul li {
+    margin-bottom: 1rem;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: #007bff;
+    font-size: 1rem;
+    font-weight: bold;
+
+}
+
+.sidebar ul li a:hover {
+    text-decoration: underline;
+}

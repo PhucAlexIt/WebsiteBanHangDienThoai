@@ -1,0 +1,49 @@
+:root {
+
+
+    --main_bg: rgb(42, 131, 233);
+
+    --bg-orange: rgb(254, 243, 242);
+    --bg-while: #fff;
+    --bg-header-item: rgba(255, 255, 255, 0.2);
+    --bg-body-home: rgb(249, 249, 249);
+    --color-black: rgb(51, 51, 51);
+    --color-red: #e62727;
+    --bg-decription: rgb(243, 244, 246);
+    --color-default: #676262;
+}
+
+
+body {
+    font-family: "Arial", Helvetica, sans-serif !important;
+    font-weight: normal;
+    font-size: 16px;
+
+
+}
+
+* {
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+}
+
+
+
+
+
+
+
+.container {
+    width: 100%;
+
+
+}
+
+.bg-while {
+    border-radius: 10px;
+    background-color: var(--bg-while);
+}
+
+a {
+    text-decoration: none;
+}

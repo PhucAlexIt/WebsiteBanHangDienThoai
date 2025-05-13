@@ -1,0 +1,116 @@
+.heading h3 {
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.heading h3 span {
+    font-weight: bold;
+}
+
+.statitis {
+    text-align: center;
+    margin-top: 1.2rem;
+}
+
+.statitis h1 {
+    color: var(--main_bg);
+    font-size: 2.5rem;
+}
+
+.statitis p {
+    font-size: 1.2rem;
+}
+
+.info-section {
+    margin-top: 30px;
+}
+
+.content {
+    padding-right: 1rem;
+    border-right: 1px #ddd5d5 solid;
+
+}
+
+.info-section img {
+    max-width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    margin-right: 1rem;
+}
+
+
+.sidebar h3 {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+
+
+.sidebar ul li {
+    margin-bottom: 1rem;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: var(--main_bg);
+    font-size: 1rem;
+    font-weight: bold;
+
+}
+
+.sidebar ul li a:hover {
+    text-decoration: underline;
+}
+
+.side-menu a:hover {
+    text-decoration: underline;
+}
+
+
+
+.infor-more-item {
+    margin-top: 2.5rem;
+
+    text-align: center;
+}
+
+.infor-more-item p {
+    font-size: 1.1rem;
+
+    padding-bottom: 1.2rem;
+    border-bottom: 1px #d8d4d4 solid;
+}
+
+.infor-more-item img {
+    margin-top: 1.2rem;
+    padding-right: 1rem;
+}
+
+.infor-more-item h3 {
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.contact {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact img {
+    border-radius: 50%;
+}
+
+.infor_contact p {
+    border-bottom: none;
+}
+
+.infor_contact span {
+    font-weight: bold;
+}
+
+.infor_contact {
+    text-align: start;
+}

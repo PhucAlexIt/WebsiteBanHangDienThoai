@@ -1,0 +1,58 @@
+/* Updated error.css */
+
+.error_alpha {
+    width: 900px;
+    height: auto;
+}
+
+.error_alpha img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.error-body {
+    margin: auto;
+    max-width: 1200px;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 30px;
+}
+
+.error_omega {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+}
+
+.error_omega-content h1 {
+    font-size: 48px;
+    color: #2b2b2b;
+    margin-bottom: 20px;
+}
+
+.error_omega-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    font-size: 16px;
+}
+
+.error_omega-contact a {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    background-color: var(--main_bg);
+    color: #FFFFFF;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+}

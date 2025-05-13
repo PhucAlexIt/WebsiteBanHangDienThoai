@@ -1,0 +1,154 @@
+.sidebar {
+    background-color: #f8f9fa;
+    padding: 20px;
+    height: 100vh;
+}
+
+.content {
+    padding: 20px;
+}
+
+.content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.profile-info h5 {
+    margin-bottom: 1rem;
+}
+
+.username {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 2rem;
+}
+
+.order {
+    display: block;
+    padding: 0.7rem 0.5rem;
+    text-decoration: none;
+    color: black;
+}
+
+.order:hover {
+    background-color: rgb(229, 237, 237);
+}
+
+.infor-account {
+    padding: 0.7rem 0.5rem;
+    margin-top: 1rem;
+}
+
+.infor-account:hover {
+    background-color: rgb(229, 237, 237);
+}
+
+.icon {
+    margin-right: 0.4rem;
+}
+
+.signout {
+    margin-bottom: 1.3rem;
+    padding: 0.6rem;
+    border: var(--main_bg) solid 1px;
+    background-color: #fff;
+    margin-right: 0.5rem;
+    border-radius: 5px;
+    width: 100%;
+    color: #55a1fd;
+}
+
+.signout:hover {
+    background-color: var(--main_bg);
+    color: white;
+}
+
+.form-input-profile,
+.form-select-option {
+    margin-top: 0.8rem;
+    padding: 0.6rem;
+    font-size: 1rem;
+    width: 100%;
+    border-radius: 5px;
+    border: #b2d2f4 1px solid;
+}
+
+.form-input-profile,
+.form-select-option:focus-visible {
+    outline: 2px solid #b2d2f4 !important;
+    border-radius: 5px;
+}
+
+.gender {
+    margin-top: 1rem;
+}
+
+.label_gender {
+    margin-bottom: 1rem;
+}
+
+.btn-option {
+    text-align: end;
+    margin-top: 1rem;
+}
+
+.btn-option button {
+    padding: 0.6rem 1.2rem;
+    border-radius: 5px;
+    color: white;
+}
+
+.btn-option .save {
+    margin-right: 0.5rem;
+    background-color: var(--main_bg);
+}
+
+.btn-option .cancel {
+    background-color: #696c6f;
+}
+
+.profile-info {
+    padding: 15px;
+    background-color: var(--bg-body-home);
+    border-radius: 8px;
+}
+
+.points-section {
+    background-color: #fff3cd;
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+}
+
+.points-section img {
+    width: 100px;
+    margin-top: 10px;
+}
+
+.form-section {
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    margin-top: 15px;
+}
+
+.form-section h5 {
+    margin-bottom: 1rem;
+}
+
+.infor-address-more {
+    margin: 1rem 0;
+}
+
+.btn-default.update {
+    text-align: center;
+    padding: 0.8rem 0;
+    border-radius: 5px;
+    width: 50%;
+    background-color: var(--main_bg);
+    color: white;
+}
+
+.btn-address {
+    text-align: center;
+}

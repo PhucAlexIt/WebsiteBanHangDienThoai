@@ -1,0 +1,235 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+
+  }
+
+
+
+
+  .breadcrumb {
+    background: none;
+    padding: 0;
+  }
+  
+  .breadcrumb .active a {
+    color: #676262;
+  }
+  .cart-title {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    font-weight: bold;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgb(41, 40, 40);
+  }
+  .description-quality{
+    margin-top: 1rem;
+    font-size: 1.2rem;
+  }
+  .cart-content{
+    padding: 20px;
+    box-shadow: 0px 1px 2px 0px cadetblue;
+    border-radius: 10px;
+  }
+  .product-item {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding: 1rem 0;
+  }
+
+  .btn-remove{
+    background-color: rgb(254, 243, 242);
+    color: rgb(217, 45, 32);
+    padding: 0.3rem 0.5rem;
+    border-radius: 10px;
+    margin-right: 10px;
+    text-decoration: none;
+  }
+
+  .btn-remove:focus {
+    box-shadow: none;
+
+  }
+
+  .btn-remove:hover {
+    color: rgb(238, 29, 14);
+  }
+  .product-item img {
+    width: 80px;
+    height: 80px;
+    margin-right: 1rem;
+    border-radius: 8px;
+  }
+  .product-details {
+    flex-grow: 1;
+  }
+
+  .caculator_total{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+  }
+
+  .product-details h5{
+    margin-bottom: 10px;
+  }
+  .product-price {
+    font-size: 1rem;
+    color: #d82a2a;
+  }
+  .quantity-controls {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  .quantity-controls button {
+      padding: 0.3rem 0.6rem;
+      margin: 0 0.3rem;
+      border: 1px solid #ccc;
+      background-color: #f8f9fa;
+      font-size: 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      outline: none;
+  }
+  .total-price {
+    font-weight: bold;
+    color: #d82a2a;
+
+  }
+  .order-summary {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    margin-top: 1rem;
+  }
+  .order-summary h4 {
+    font-weight: bold;
+  }
+
+  .des-total-price{
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+  }
+  .total-price-checkout{
+    font-size: 1.6rem;
+    color: #d9534f;
+    font-weight: 600;
+  }
+
+  .des-tip{
+    margin-top: 1rem;
+    margin-left: 1rem;
+  }
+  .list-tip li {
+    margin-bottom: 0.7rem;
+  }
+  
+  .heading_infor{
+    font-size: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgb(42, 39, 39);
+
+  }
+  .checkout-btn {
+    background-color: rgb(252, 118, 0);
+    color: #fff;
+    border: none;
+    padding: 0.8rem 1rem;
+    width: 100%;
+    margin-top: 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  .voucher-card {
+    background-color: #fdf0d1;
+    border: 1px solid #f5c6cb;
+    display: flex;
+    padding: 0.5rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+  }
+
+  .voucher-card img{
+   
+    object-fit: fill;
+    height: 75px;
+  }
+
+  .content-voucher{
+    margin-left: 1rem;
+  }
+
+  
+  .voucher-card p {
+    margin: 0;
+    font-size: 0.8rem;
+    margin-bottom: .7rem;
+  }
+  .voucher-btn {
+    background-color: #d9534f;
+    color: #fff;
+    border: none;
+    padding: 0.3rem 1rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+
+  .note{
+    padding: 1rem;
+    border-radius: 5px;
+  
+    background-color: #f3f4f4;
+
+  }
+
+  .note label {
+    margin-bottom: 0.6rem;
+  }
+
+  .form-control{
+    padding: 0;
+  }
+
+  .check-export{
+    display: flex;
+  }
+
+  .export-bill input{
+    margin-right: 0.6rem;
+  }
+
+  #form-bill-export {
+    
+    margin: 1rem auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: none;
+    animation: showForm 0.3s ease-in-out ;
+}
+
+.input-group {
+    margin-bottom: 10px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px; 
+    outline: none;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+
+}
+
+
+

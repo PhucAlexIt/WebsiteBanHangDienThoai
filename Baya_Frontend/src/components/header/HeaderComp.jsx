@@ -1,4 +1,4 @@
-
+import { Link } from "react-router-dom"
 
 const HeaderComp = () => {
     return (
@@ -7,9 +7,9 @@ const HeaderComp = () => {
                 <div className="header_main">
 
                     <div className="header_logo">
-                        <a href="index.html"><img src="./assets/images/logo/logo-final (3) (1).png" alt="logo" /> </a>
+                        <a to="index.html"><img src="./src/assets/images/logo/logo-final (3) (1).png" alt="logo" /> </a>
                     </div>
-                    <div href="" className="header_item item_category " onclick="openCategory()">
+                    <div to="" className="header_item item_category " onclick="openCategory()">
 
                         <div className="item_box ">
                             <i className="fa-solid fa-bars"></i>
@@ -17,10 +17,9 @@ const HeaderComp = () => {
                         <div className="item_content">
                             <p>Danh mục</p>
                         </div>
-
                     </div>
 
-                    <div classNameName="header_search">
+                    <div className="header_search">
                         <button type="submit" className="search_box search_box_color">
                             <i className="fa-solid fa-magnifying-glass"></i>
 
@@ -33,16 +32,16 @@ const HeaderComp = () => {
 
 
 
-                    <a href="cart.html" target="_blank" className="header_item">
+                    <Link to="cart.html" target="_blank" className="header_item">
                         <div className="item_box ">
                             <i className="fa-solid fa-cart-shopping"></i>
                         </div>
                         <div className="item_content">
                             <p>Giỏ hàng</p>
                         </div>
-                    </a>
+                    </Link>
 
-                    <a href="login.html" target="_blank" className="header_item">
+                    <Link to="login.html" target="_blank" className="header_item">
 
                         <div className="item_box ">
                             <i className="fa-regular fa-user color-while"></i>
@@ -51,8 +50,8 @@ const HeaderComp = () => {
                             <p>Đăng nhập</p>
                         </div>
 
-                    </a>
-                    <a href="storeAddress.html" target="_blank" className="header_address ">
+                    </Link>
+                    <Link to="storeAddress.html" target="_blank" className="header_address ">
                         <div className="address_alpha">
                             <div className="item_box ">
                                 <i className="fa-solid fa-location-dot"></i>
@@ -65,7 +64,7 @@ const HeaderComp = () => {
                         <div className="item_box address_beta ">
                             <i className="fa-solid fa-angle-right"></i>
                         </div>
-                    </a>
+                    </Link>
 
 
                 </div>
