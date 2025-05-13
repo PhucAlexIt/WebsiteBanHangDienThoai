@@ -1,0 +1,19 @@
+package vn.id.phonestore.service.moduleProduct;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import vn.id.phonestore.dtos.ProductDTO;
+import vn.id.phonestore.entity.Product;
+import vn.id.phonestore.repository.moduleProduct.ProductRepository;
+
+import java.util.List;
+
+@Service
+public class ProductService {
+    @Autowired
+    private ProductRepository productRepository;
+
+    public List<ProductDTO> findTop10QuanlitySell() {
+        return productRepository.findTop10ByOrderByQuanlitySellDesc();
+    }
+}

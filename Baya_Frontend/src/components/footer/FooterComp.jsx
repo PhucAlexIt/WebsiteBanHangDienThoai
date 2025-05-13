@@ -13,7 +13,6 @@ const FooterComp = () => {
                             <button>ĐĂNG KÝ</button>
                         </div>
 
-
                     </div>
                     <div className="social">
                         <p>Kết nối với chúng tôi</p>

@@ -3,6 +3,8 @@ package vn.id.phonestore.entity;
 import jakarta.persistence.*;
 import org.hibernate.annotations.ColumnDefault;
 
+import java.time.Instant;
+
 @Entity
 @Table(name = "products")
 public class Product {
@@ -20,19 +22,21 @@ public class Product {
     @Column(name = "description")
     private String description;
 
-    @Column(name = "releaseDate")
-    private Integer releaseDate;
-
     @Column(name = "img")
     private String img;
-
-    @ColumnDefault("1")
-    @Column(name = "isVisible", nullable = false)
-    private Boolean isVisible = false;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "categoryID")
     private Category categoryID;
+
+    @Column(name = "quanlityStock")
+    private Integer quanlityStock;
+
+    @Column(name = "quanlitySell")
+    private Integer quanlitySell;
+
+    @Column(name = "createAt")
+    private Instant createAt;
 
     public String getProductID() {
         return productID;
@@ -66,14 +70,6 @@ public class Product {
         this.description = description;
     }
 
-    public Integer getReleaseDate() {
-        return releaseDate;
-    }
-
-    public void setReleaseDate(Integer releaseDate) {
-        this.releaseDate = releaseDate;
-    }
-
     public String getImg() {
         return img;
     }
@@ -82,20 +78,36 @@ public class Product {
         this.img = img;
     }
 
-    public Boolean getIsVisible() {
-        return isVisible;
-    }
-
-    public void setIsVisible(Boolean isVisible) {
-        this.isVisible = isVisible;
-    }
-
     public Category getCategoryID() {
         return categoryID;
     }
 
     public void setCategoryID(Category categoryID) {
         this.categoryID = categoryID;
+    }
+
+    public Integer getQuanlityStock() {
+        return quanlityStock;
+    }
+
+    public void setQuanlityStock(Integer quanlityStock) {
+        this.quanlityStock = quanlityStock;
+    }
+
+    public Integer getQuanlitySell() {
+        return quanlitySell;
+    }
+
+    public void setQuanlitySell(Integer quanlitySell) {
+        this.quanlitySell = quanlitySell;
+    }
+
+    public Instant getCreateAt() {
+        return createAt;
+    }
+
+    public void setCreateAt(Instant createAt) {
+        this.createAt = createAt;
     }
 
 }

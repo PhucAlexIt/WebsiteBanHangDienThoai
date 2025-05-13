@@ -22,12 +22,8 @@ const HeaderComp = () => {
                     <div className="header_search">
                         <button type="submit" className="search_box search_box_color">
                             <i className="fa-solid fa-magnifying-glass"></i>
-
                         </button>
-
                         <input type="text" className="search_input " placeholder="Bạn tìm gì..." />
-
-
                     </div>
 
 

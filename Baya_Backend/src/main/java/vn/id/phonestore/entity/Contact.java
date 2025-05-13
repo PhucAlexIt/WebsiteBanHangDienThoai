@@ -1,7 +1,6 @@
 package vn.id.phonestore.entity;
 
 import jakarta.persistence.*;
-import org.hibernate.annotations.ColumnDefault;
 
 @Entity
 @Table(name = "contact")
@@ -10,7 +9,6 @@ public class Contact {
     @Column(name = "contactID", nullable = false)
     private Integer id;
 
-    @ColumnDefault("'0'")
     @Column(name = "fullname", nullable = false, length = 50)
     private String fullname;
 
@@ -18,11 +16,9 @@ public class Contact {
     @Column(name = "phoneNumber", nullable = false)
     private String phoneNumber;
 
-    @ColumnDefault("'0'")
     @Column(name = "email", nullable = false, length = 50)
     private String email;
 
-    @ColumnDefault("'0'")
     @Column(name = "message", nullable = false, length = 50)
     private String message;
 
