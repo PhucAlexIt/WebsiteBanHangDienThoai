@@ -1,0 +1,140 @@
+.review-container {
+
+    padding: 15px;
+
+    border-radius: 10px;
+    margin-top: 20px;
+
+}
+
+.filter-section {
+    margin-bottom: 20px;
+}
+
+.filter-section h2 {
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.filter-options {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.filter-btn {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+    background-color: var(--main_bg);
+    color: #fff;
+}
+
+.reviews-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.review {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    height: fit-content;
+}
+
+.review p {
+    margin-top: 5px;
+}
+
+.review h3 {
+    margin-bottom: 5px;
+
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.rating {
+    color: #ff9800;
+    font-size: 20px;
+}
+
+.timestamp {
+    padding-top: 10px;
+    font-size: 13px;
+    color: #666;
+}
+
+
+
+.star-rating {
+    justify-content: center;
+    display: flex;
+    white-space: nowrap;
+}
+
+.star-rating [type="radio"] {
+    appearance: none;
+}
+
+.star-rating i {
+    color: #eee;
+    font-size: 30px;
+    transition: 0.3s;
+}
+
+.star-rating label:is(:hover, :has(~ :hover)) i {
+    transform: scale(1.35);
+    color: #fffdba;
+
+}
+
+.area_submit {
+    display: flex;
+    width: 100%;
+    height: fit-content;
+    justify-content: center;
+}
+
+.btn_writeReview {
+    margin-top: 25px;
+
+    font-size: 16px;
+    padding: 10px 10px;
+}
+
+.form_review {
+    justify-content: center;
+}
+
+.area_review {
+    padding: 10px;
+
+    width: 100%;
+    height: 100px;
+}
+
+.star-rating label:has(~ :checked) i {
+    color: #ff9f00;
+    text-shadow: 0 0 2px #ffffff, 0 0 10px #ffee58;
+}
+
+@keyframes jump {
+
+    0%,
+    50% {
+        transform: translatey(0) scale(1.35);
+    }
+
+    100% {
+        transform: translatey(-15%) scale(1.35);
+    }
+}

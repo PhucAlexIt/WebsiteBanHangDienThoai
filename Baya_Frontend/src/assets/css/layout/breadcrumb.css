@@ -1,0 +1,18 @@
+.breadcrumb ul {
+    margin-bottom: 15px;
+    font-size: 14px;
+    display: flex;
+}
+
+.breadcrumb ul li a {
+    color: rgb(152, 162, 179);
+    text-decoration: none;
+}
+
+.breadcrumb ul li {
+    padding-right: 10px;
+}
+
+.breadcrumb ul li a:last-child {
+    color: rgb(52, 64, 84);
+}

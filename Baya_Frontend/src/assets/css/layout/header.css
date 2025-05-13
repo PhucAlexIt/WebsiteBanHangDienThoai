@@ -1,0 +1,142 @@
+.header {
+    position: sticky;
+    z-index: 1000;
+    top: 0;
+
+
+    height: 70px;
+    width: 100%;
+    background-color: var(--main_bg);
+
+
+}
+
+.header_main {
+
+    padding: 15px 0;
+    width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+}
+
+.header_logo {
+    height: 100%;
+    width: 150px;
+    margin-right: 20px;
+
+}
+
+.header_logo img {
+    height: 100%;
+    width: 100%;
+
+
+}
+
+.header_item {
+    display: flex;
+    width: 85px;
+    justify-content: center;
+    align-items: center;
+
+
+
+}
+
+.item_content {
+    margin-left: 5px;
+}
+
+.header_search {
+    padding-left: 10px;
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 415px;
+    margin: 0 25px;
+    background-color: var(--bg-while);
+}
+
+.search_input {
+
+    flex-grow: 1;
+    height: 100%;
+    outline: none;
+    border: none;
+
+}
+
+.search_box,
+.item_box {
+    padding: 0 5px;
+    height: 100%;
+    width: 30px;
+    text-align: center;
+    font-size: 16px;
+    align-content: center;
+    border: none;
+
+}
+
+.search_box i,
+.item_box i {
+    width: 20px;
+
+
+}
+
+.item_content p {
+    font-size: 15px;
+}
+
+.search_box_color {
+    background-color: var(--bg-while);
+}
+
+.header_item {
+    border-radius: 20px;
+    color: var(--bg-while);
+    padding-right: 5px;
+    width: fit-content;
+    margin-right: 10px;
+    text-decoration: none;
+
+}
+
+.header_item:hover {
+    /* xem lai  */
+    transition: 0.3s ease, transform 0.3s ease;
+
+
+    background-color: var(--bg-header-item);
+}
+
+.header_address {
+    float: right;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: var(--bg-while);
+    display: flex;
+    justify-content: space-around;
+    width: 210px;
+
+    text-decoration: none;
+    align-items: center;
+}
+
+.address_alpha {
+    width: fit-content;
+    align-items: center;
+    display: flex;
+}
+
+.address_beta {
+    width: 20px;
+}
+
+.item_category {
+    cursor: pointer;
+}

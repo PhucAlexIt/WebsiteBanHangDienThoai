@@ -1,0 +1,278 @@
+.form-infor-checkout h4 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+
+}
+
+.form-infor-checkout,
+.order-summary {
+    padding: 15px 20px;
+}
+
+.containerPage {}
+
+
+.form-infor-checkout p {
+    color: #444141;
+
+}
+
+
+
+.form-infor-checkout form {
+    margin-top: 1rem;
+}
+
+.des-heading a {
+    color: red;
+}
+
+.breadcrumb {
+    background-color: var(--bg-body-home);
+    padding: 0px;
+}
+
+.breadcrumb-item.active {
+    color: #252222;
+}
+
+.order-summary {
+    border-left: 1px solid #ddd;
+    padding-left: 20px;
+}
+
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+}
+
+.form-input-item {
+    padding: 0.5rem;
+    outline: rgb(42, 131, 233);
+}
+
+
+.form-input-item:focus {
+    outline: 1px solid #b2d2f4;
+    border: 2px solid #b2d2f4;
+    border-radius: 5px;
+}
+
+.form-select-item:focus {
+    outline: 2px solid #b2d2f4;
+    border: 1px solid #b2d2f4;
+    border-radius: 2px;
+
+}
+
+.input-group input,
+select {
+    margin-top: 0.8rem;
+    padding: 0.8rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: #b2d2f4 1px solid;
+
+}
+
+.btn-default {
+    margin-top: 1.2rem;
+    padding: 0.8rem 1rem;
+    border: none;
+    background-color: rgb(252, 118, 0);
+    outline: none;
+    color: white;
+    border-radius: 5px;
+}
+
+.btn-default:focus {
+    outline: 2px solid #ddd;
+}
+
+
+.order-summary {
+    border-left: 1px solid #ddd;
+    padding-left: 20px;
+}
+
+.product-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+    position: relative;
+}
+
+.product-item img {
+    min-width: 2rem;
+    max-width: 4rem;
+    height: auto;
+    border: 1px solid #b2d2f4;
+    border-radius: 5px;
+}
+
+.product-item .des-name {
+    margin-left: 0.2rem;
+    flex: 1;
+    color: #676262;
+    text-align: start;
+}
+
+.quality {
+    background-color: rgb(254, 243, 242);
+    color: rgb(217, 45, 32);
+    padding: 0.2rem 0.5rem;
+    border-radius: 5px;
+    top: -10px;
+    left: -10px;
+    position: absolute;
+}
+
+.product-item .price {
+    color: #e92020;
+}
+
+.discount-buttons button {
+    margin-right: 5px;
+}
+
+
+.note{
+    padding: 1rem;
+    border-radius: 5px;
+  
+    background-color: #f3f4f4;
+
+  }
+
+  .note label {
+    margin-bottom: 0.6rem;
+  }
+
+  .form-control{
+    padding: 0;
+  }
+
+  .check-export{
+    display: flex;
+  }
+
+  .export-bill input{
+    margin-right: 0.6rem;
+  }
+
+  #form-bill-export {
+    
+    margin: 1rem auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: none;
+    animation: showForm 0.3s ease-in-out ;
+}
+
+
+#form-bill-export .button {
+    background-color: #ff0000; /* Màu đỏ */
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 1.6rem;
+}
+.order-summary h4 {
+    font-size: 1.3rem;
+    margin-bottom: 1.2rem;
+    font-weight: bold;
+
+}
+
+
+
+.discount {
+    margin-top: 0.8rem;
+}
+
+.discount-code {
+    padding-top: 0.5rem;
+}
+
+.discount .discount-type {
+    margin: 1rem 0;
+
+}
+
+.discount .discount-label {
+    margin-top: 1rem;
+}
+
+.discount-label label {
+    border: 1px solid var(--main_bg);
+    padding: 0.5rem 0.7rem;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.discount-label label:hover {
+    background-color: var(--main_bg);
+    color: #fff;
+    cursor: pointer;
+
+}
+
+.voucher-card {
+    background-color: #fdf0d1;
+    border: 1px solid #f5c6cb;
+    display: flex;
+    padding: 0.5rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+  }
+
+  .voucher-card img{
+   
+    object-fit: fill;
+    height: 75px;
+  }
+
+  .content-voucher{
+    margin-left: 1rem;
+  }
+
+  
+  .voucher-card p {
+    margin: 0;
+    font-size: 0.8rem;
+    margin-bottom: .7rem;
+  }
+  .voucher-btn {
+    background-color: #d9534f;
+    color: #fff;
+    border: none;
+    padding: 0.3rem 1rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+.summary {
+    margin-top: 1rem;
+}
+
+.summary div {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+.summary div span {
+    color: #676262;
+    margin-top: auto;
+}
+
+.summary .summary-total .price-detail {
+    color: chocolate;
+    font-size: 1.5rem;
+}

@@ -1,0 +1,16 @@
+.news_list li {
+    width: 50%;
+    background-color: rgb(106, 83, 52);
+    height: 300px;
+}
+
+.news_list p {
+    font-weight: 600;
+}
+
+.news_list {
+    display: grid;
+    /* chia li thành 2 cột */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}

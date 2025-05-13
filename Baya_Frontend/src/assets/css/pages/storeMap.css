@@ -1,0 +1,57 @@
+.store-beta {
+    width: 100%;
+    height: 100%;
+    font-size: 15px;
+}
+
+.store-beta img {
+    width: 400px;
+    height: 300px;
+    object-fit: cover;
+}
+
+.store_item {
+    display: flex;
+
+}
+
+.store_item h5 {
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.store_item a {
+    text-decoration: none;
+    font-weight: bold;
+    color: var(--main_bg);
+}
+
+.store_item b {
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.store_address {
+    width: 100%;
+    height: fit-content;
+}
+
+.store_address iframe {
+    width: 100%;
+    height: 400px;
+
+}
+
+.store_content img {
+    width: 15px;
+    margin-right: 10px;
+    height: 15px;
+}
+
+.store_content b {
+    font-weight: bold;
+}
+
+.store_content {
+    margin-top: 25px;
+}

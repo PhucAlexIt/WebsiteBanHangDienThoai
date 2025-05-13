@@ -1,0 +1,165 @@
+.slider {
+    height: 200px;
+    margin: 15px 0px;
+
+}
+
+
+.filter-bar {
+    display: flex;
+    flex-direction: column;
+
+    padding: 20px 15px;
+
+    border-radius: 8px;
+
+    width: 100%;
+}
+
+.filter-options {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+
+.filter-button i {
+    opacity: 0.7;
+
+}
+
+.filter-button,
+.brand-button,
+.category-button,
+.price-button,
+.sort-button {
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.filter-button {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+}
+
+.brand-button {
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+.category-button,
+.price-button {
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+.sort-options {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.slides_search {
+    display: flex;
+}
+
+.sort-button {
+
+    background-color: #ffffff;
+    color: #333;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.sort-button.active {
+    color: #007bff;
+
+}
+
+
+.sort-button i {
+    font-size: 10px;
+}
+
+
+
+.button_load-product {
+
+    width: 25%;
+    border-radius: 10px;
+    text-align: center;
+    padding: 10px 10px;
+}
+
+.see_more-product {
+    margin-top: 20px;
+    justify-content: center;
+    width: 100%;
+    display: flex;
+}
+
+.btn_hover-price {
+    position: relative;
+    display: flex;
+}
+
+.btn_hover-price ul {
+    display: none;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 10px 0px;
+    top: 100%;
+    background-color: #ddd;
+    border-radius: 10px;
+    width: 150px;
+    left: 0;
+    position: absolute;
+    z-index: 1;
+
+
+}
+
+
+.btn_hover-price:hover ul {
+    display: block;
+}
+
+.btn_hover-price ul li {
+    padding: 5px 0;
+}
+
+.fui-basic-pagination .pagination-list {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.fui-basic-pagination .pagination-link {
+    display: block;
+    min-width: 32px;
+    height: 32px;
+    border-radius: 4px;
+    padding-inline: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1;
+    user-select: none;
+    font-size: 14px;
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+
+.fui-basic-pagination .pagination-link:hover {
+    background-color: rgba(0, 0, 0, 0.08);
+}
+
+.fui-basic-pagination .pagination-link.selected {
+    background-color: var(--main_bg);
+    color: white;
+}

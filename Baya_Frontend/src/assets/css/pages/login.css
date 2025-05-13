@@ -1,0 +1,135 @@
+.form {
+    margin: 0 auto;
+    width: 700px;
+    height: fit-content;
+    padding-bottom: 50px;
+    padding-top: 50px;
+}
+
+.block_img {
+    justify-items: center;
+    width: 100%;
+    display: block;
+    height: 150px;
+}
+
+
+.block_img img {
+    height: 100px;
+    margin: auto;
+    object-fit: cover;
+    width: 100px;
+}
+
+.block_img h1 {
+    margin-top: 20px;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.block_login img {
+    width: 24px;
+    margin-right: 10px;
+    height: 24px;
+
+}
+
+.block_login p {
+    font-size: 18px;
+}
+
+.block_login {
+    display: flex;
+    justify-content: center;
+}
+
+.login-gg,
+.login-fb {
+    cursor: pointer;
+    padding: 14px 20px;
+    align-items: center;
+    display: flex;
+}
+
+.block_line-through {
+    padding: 20px 0;
+    width: 100%;
+    text-align: center;
+    color: var(--color-black);
+}
+
+.block_main input,
+.block_main button {
+
+    width: 100%;
+    font-size: 15px;
+
+
+
+    outline: none;
+
+
+}
+
+.block_main {
+    margin-top: 25px;
+}
+
+.block_main button {
+    border-radius: 10px;
+    border: none;
+    padding: 15px 0;
+}
+
+.block_main input {
+    border: 0cap;
+
+    padding-top: 10px;
+    padding-bottom: 5px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid rgb(82, 82, 82, 0.2);
+}
+
+.block_main p {
+    color: rgb(46, 46, 46);
+    margin-top: 5px;
+}
+
+.btn_submit-form {
+    margin-top: 10px;
+    cursor: pointer;
+    color: var(--bg-while);
+    background-color: var(--main_bg);
+}
+
+.bg_form-input {
+
+    background-color: var(--bg-body-home);
+}
+
+.form_links {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.form_links a {
+    color: var(--main_bg);
+}
+
+.forget-password {
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: var(--color-black);
+    float: right;
+
+}
+
+.restore_text {
+    margin: 20px;
+    text-align: center;
+}
+
+.restore_text p {
+    color: var(--color-black);
+}

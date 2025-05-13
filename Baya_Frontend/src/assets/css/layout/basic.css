@@ -1,0 +1,100 @@
+:root {
+
+    --text-color: #333;
+
+}
+
+
+
+* {
+    box-sizing: inherit;
+}
+
+.grid {
+    max-width: 1200px;
+
+
+
+
+}
+
+a {
+    text-decoration: none;
+}
+
+.containerPage {
+    display: block;
+    height: 100%;
+    background-color: var(--bg-body-home);
+}
+
+.app {
+    overflow: hidden;
+}
+
+
+html {
+    font-size: 100%;
+    line-height: 2rem;
+    box-sizing: border-box;
+}
+
+.containerPage {
+    height: 100%;
+    background-color: var(--bg-body-home);
+}
+
+.grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2.5rem;
+
+}
+
+
+
+.bold {
+    font-weight: bold;
+}
+
+.color-default {
+    color: var(--color-default);
+}
+
+.btn-default {
+    border: none;
+    padding: 0.3rem 0.6rem;
+}
+
+.btn-default:focus {
+    outline: none;
+}
+
+a:hover {
+    text-decoration: none !important;
+}
+
+/* .modal {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    visibility: hidden;
+    z-index: 1;
+
+
+} */
+
+
+@keyframes showForm {
+    from {
+        transform: translateY(50%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0%);
+        opacity: 1;
+    }
+}
