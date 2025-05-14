@@ -29,6 +29,11 @@
 
 }
 
+.img-feature {
+    height: 100%;
+    width: fit-content;
+}
+
 
 .product_name h1 {
     font-size: 20px;
@@ -179,9 +184,13 @@
 .img_slider {
     position: relative;
     height: fit-content;
+    text-align: center;
 }
 
 .img_slider img {
+    margin: auto;
+    height: 100%;
+    width: fit-content;
     object-fit: cover;
 }
 

@@ -1,7 +1,6 @@
 package vn.id.phonestore.entity;
 
 import jakarta.persistence.*;
-import org.hibernate.annotations.ColumnDefault;
 
 @Entity
 @Table(name = "promotion_products")
@@ -15,7 +14,6 @@ public class PromotionProduct {
     private Promotion promotionID;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @ColumnDefault("''")
     @JoinColumn(name = "productID", nullable = false)
     private Product productID;
 

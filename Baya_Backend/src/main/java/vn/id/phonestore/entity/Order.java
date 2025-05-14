@@ -50,7 +50,7 @@ public class Order {
     private LocalDate deliveredDate;
 
     @Lob
-    @Column(name = "Note")
+    @Column(name = "note")
     private String note;
 
     @ColumnDefault("0")

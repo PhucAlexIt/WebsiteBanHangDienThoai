@@ -10,4 +10,8 @@ import java.util.List;
 public interface ProductRepository extends JpaRepository<Product, Long> {
 
     List<Product> findTop10ByOrderByQuanlitySellDesc();
+
+    List<Product> findTop10ByOrderByDiscountDefaultDesc();
+
+    Product getProductByProductID(Integer productID);
 }
