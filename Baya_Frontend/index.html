@@ -12,6 +12,8 @@
   <link rel="stylesheet" href="./src/assets/reset/reset.css">
   <link rel="stylesheet" href="./src/assets/css/layout/header.css">
   <link rel="stylesheet" href="./src/assets/css/pages/home.css">
+  <link rel="stylesheet" href="./src/assets/css/layout/breadcrumb.css">
+  <!-- <link rel="stylesheet" href="./src/assets/css/pages/productDetail.css"> -->
   <link rel="stylesheet" href="./src/assets/css/layout/footer.css">
   <link rel="stylesheet" href="./src/assets/css/layout/modal.css">
 </head>
@@ -21,6 +23,17 @@
   <script type="module" src="/src/main.jsx"></script>
 
   <!-- <script src="./src/assets/js/sliderBanner.js"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <script>
+    anime({
+      targets: '#myImage',
+      translateX: 300,
+      duration: 2000,
+      direction: 'alternate',
+      loop: true,
+      easing: 'easeInOutSine'
+    });
+  </script>
 </body>
 
 </html>

@@ -6,8 +6,7 @@ const ProductCard = ({ product }) => {
 
     const navigate = useNavigate();
     const goToProDetail = (id) => {
-        var url = "/product/" + id;
-        console.log(url)
+
         navigate("/product/" + id);
     }
 
