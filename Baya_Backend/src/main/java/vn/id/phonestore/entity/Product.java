@@ -1,17 +1,15 @@
 package vn.id.phonestore.entity;
 
 import jakarta.persistence.*;
-import org.hibernate.annotations.ColumnDefault;
 
 import java.time.Instant;
-import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "products")
 public class Product {
     @Id
-    @Column(name = "productID", nullable = false, length = 100)
-    private String productID;
+    @Column(name = "productID", nullable = false)
+    private Integer id;
 
     @Column(name = "name")
     private String name;
@@ -26,32 +24,28 @@ public class Product {
     @Column(name = "img")
     private String img;
 
-
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "categoryID")
     private Category categoryID;
 
-    @Column(name = "quanlityStock",length = 11,nullable = true)
+    @Column(name = "quanlityStock")
     private Integer quanlityStock;
 
-    @Column(name = "quanlitySell",length = 11,nullable = true)
+    @Column(name = "quanlitySell")
     private Integer quanlitySell;
 
     @Column(name = "createAt")
-//    @PrePersist
-//    public void prePersist() {
-//        if (this.createAt == null) {
-//            this.createAt = Instant.now();
-//        }
-//    }
-    private Instant  createAt;
+    private Instant createAt;
 
-    public String getProductID() {
-        return productID;
+    @Column(name = "discountDefault")
+    private Integer discountDefault;
+
+    public Integer getId() {
+        return id;
     }
 
-    public void setProductID(String productID) {
-        this.productID = productID;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -85,6 +79,7 @@ public class Product {
     public void setImg(String img) {
         this.img = img;
     }
+
     public Category getCategoryID() {
         return categoryID;
     }
@@ -109,12 +104,20 @@ public class Product {
         this.quanlitySell = quanlitySell;
     }
 
-    public Instant   getCreateAt() {
+    public Instant getCreateAt() {
         return createAt;
     }
 
-    public void setCreateAt(Instant   createAt) {
+    public void setCreateAt(Instant createAt) {
         this.createAt = createAt;
+    }
+
+    public Integer getDiscountDefault() {
+        return discountDefault;
+    }
+
+    public void setDiscountDefault(Integer discountDefault) {
+        this.discountDefault = discountDefault;
     }
 
 }
