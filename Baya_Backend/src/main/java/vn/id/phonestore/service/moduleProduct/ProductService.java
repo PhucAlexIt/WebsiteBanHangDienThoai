@@ -26,4 +26,7 @@ public class ProductService {
     public Product addProduct(Product pro){
         return productRepository.save(pro);
     }
+    public Product getProduct(Integer id){
+        return productRepository.getProductById(id);
+    }
 }
