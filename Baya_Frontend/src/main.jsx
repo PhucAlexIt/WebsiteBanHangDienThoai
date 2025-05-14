@@ -9,6 +9,7 @@ import {
 } from "react-router-dom";
 import StoreAddress from './pages/StoreAddress';
 import App from './App';
+import HomePage from './pages/HomePage';
 
 
 
@@ -20,7 +21,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <div>home page child</div>,
+        element: <HomePage />,
       },
       {
         path: "/store-address",

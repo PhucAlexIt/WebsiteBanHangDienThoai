@@ -26,7 +26,6 @@ public class ProductReview {
     @Column(name = "comment", nullable = false)
     private String comment;
 
-    @ColumnDefault("0")
     @Column(name = "phoneNumber", nullable = false)
     private Integer phoneNumber;
 

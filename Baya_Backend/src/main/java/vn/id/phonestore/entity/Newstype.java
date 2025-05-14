@@ -17,7 +17,6 @@ public class Newstype {
     @Column(name = "name", nullable = false, length = 50)
     private String name;
 
-    @ColumnDefault("'0'")
     @Column(name = "description", nullable = false)
     private String description;
 
