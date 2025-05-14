@@ -3,7 +3,7 @@ package vn.id.phonestore.config;
 public class RestResponse<T>{
     private int status;
     private String error;
-    private Object message;
+    private String message;
     private T data;
 
     public int getStatus() {
@@ -26,7 +26,7 @@ public class RestResponse<T>{
         return message;
     }
 
-    public void setMessage(Object message) {
+    public void setMessage(String message) {
         this.message = message;
     }
 
@@ -37,5 +37,11 @@ public class RestResponse<T>{
     public void setData(T data) {
         this.data = data;
     }
-
+    public RestResponse<T> getSuccess(T data ){
+        RestResponse<T> response = new RestResponse();
+        response.setStatus(200);
+        response.setData(data);
+        response.setMessage("success");
+        return response;
+    }
 }

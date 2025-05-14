@@ -13,7 +13,7 @@ public class ProductService {
     @Autowired
     private ProductRepository productRepository;
 
-    public List<ProductDTO> findTop10QuanlitySell() {
+    public List<Product> findTop10QuanlitySell() {
         return productRepository.findTop10ByOrderByQuanlitySellDesc();
     }
 }

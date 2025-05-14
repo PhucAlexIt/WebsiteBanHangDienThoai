@@ -25,6 +25,7 @@ public class Product {
     @Column(name = "img")
     private String img;
 
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "categoryID")
     private Category categoryID;
@@ -77,7 +78,6 @@ public class Product {
     public void setImg(String img) {
         this.img = img;
     }
-
     public Category getCategoryID() {
         return categoryID;
     }
