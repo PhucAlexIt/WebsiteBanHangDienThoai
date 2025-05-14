@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import org.hibernate.annotations.ColumnDefault;
 
 import java.time.Instant;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "products")
@@ -26,18 +27,24 @@ public class Product {
     private String img;
 
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "categoryID")
     private Category categoryID;
 
-    @Column(name = "quanlityStock")
+    @Column(name = "quanlityStock",length = 11,nullable = true)
     private Integer quanlityStock;
 
-    @Column(name = "quanlitySell")
+    @Column(name = "quanlitySell",length = 11,nullable = true)
     private Integer quanlitySell;
 
     @Column(name = "createAt")
-    private Instant createAt;
+//    @PrePersist
+//    public void prePersist() {
+//        if (this.createAt == null) {
+//            this.createAt = Instant.now();
+//        }
+//    }
+    private Instant  createAt;
 
     public String getProductID() {
         return productID;
@@ -102,11 +109,11 @@ public class Product {
         this.quanlitySell = quanlitySell;
     }
 
-    public Instant getCreateAt() {
+    public Instant   getCreateAt() {
         return createAt;
     }
 
-    public void setCreateAt(Instant createAt) {
+    public void setCreateAt(Instant   createAt) {
         this.createAt = createAt;
     }
 
