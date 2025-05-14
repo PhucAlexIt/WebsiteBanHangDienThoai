@@ -16,4 +16,17 @@ public class ProductService {
     public List<Product> findTop10QuanlitySell() {
         return productRepository.findTop10ByOrderByQuanlitySellDesc();
     }
+
+    public List<Product> findTop10DiscountSell() {
+        return productRepository.findTop10ByOrderByDiscountDefaultDesc();
+    }
+    public List<Product> listAllProduct() {
+        return productRepository.findAll();
+    }
+    public Product addProduct(Product pro){
+        return productRepository.save(pro);
+    }
+    public Product getProduct(Integer productID){
+        return productRepository.getProductByProductID(productID);
+    }
 }

@@ -214,8 +214,10 @@ a {
     margin-top: 20px;
 }
 
+.card_tilte {
+    height: 50px !important;
 
-
+}
 
 .block_sale {
 

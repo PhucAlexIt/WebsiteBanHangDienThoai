@@ -16,8 +16,8 @@ public class OrderDetail {
     @JoinColumn(name = "orderID", nullable = false)
     private Order orders;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "productID")
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "productID", nullable = false)
     private Product productID;
 
     @Column(name = "quantity", nullable = false)

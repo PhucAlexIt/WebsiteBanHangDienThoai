@@ -1,5 +1,9 @@
 package vn.id.phonestore.dtos;
 
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import vn.id.phonestore.entity.Product;
+
 import java.time.Instant;
 
 public class ProductDTO {
@@ -11,9 +15,7 @@ public class ProductDTO {
     private int categoryID;
     private Integer quanlityStock;
     private Integer quanlitySell;
-private Instant createdAt;
-
-    public ProductDTO(String productID, String name, String description, int price, String img, int categoryID, Integer quanlityStock, Integer quanlitySell, Instant createdAt) {
+    public ProductDTO(String productID, String name, String description, int price, String img, int categoryID, Integer quanlityStock, Integer quanlitySell) {
         this.productID = productID;
         this.name = name;
         this.description = description;
@@ -22,7 +24,7 @@ private Instant createdAt;
         this.categoryID = categoryID;
         this.quanlityStock = quanlityStock;
         this.quanlitySell = quanlitySell;
-        this.createdAt = createdAt;
+
     }
     public ProductDTO() {
 
@@ -92,13 +94,6 @@ private Instant createdAt;
         this.quanlitySell = quanlitySell;
     }
 
-    public Instant getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(Instant createdAt) {
-        this.createdAt = createdAt;
-    }
 
     @Override
     public String toString() {
@@ -111,7 +106,12 @@ private Instant createdAt;
                 ", categoryID=" + categoryID +
                 ", quanlityStock=" + quanlityStock +
                 ", quanlitySell=" + quanlitySell +
-                ", createdAt=" + createdAt +
+
                 '}';
+    }
+    public ProductDTO convertToDTO(Product product) {
+
+         ModelMapper modelMapper = new ModelMapper();
+        return modelMapper.map(product, ProductDTO.class);
     }
 }
