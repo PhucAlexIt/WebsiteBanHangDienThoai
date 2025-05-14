@@ -12,7 +12,7 @@ const BlockTop10Discounts = () => {
         fetch(instandURL + '/getTop10Discounts')
             .then(response => response.json())
             .then(data => {
-                console.log("data nhận về top discount", data)
+
                 setTopDiscounts(data);
             })
             .catch(error => {

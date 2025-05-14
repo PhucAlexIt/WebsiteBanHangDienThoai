@@ -9,7 +9,7 @@ import java.time.Instant;
 public class Product {
     @Id
     @Column(name = "productID", nullable = false)
-    private Integer id;
+    private Integer productID;
 
     @Column(name = "name")
     private String name;
@@ -40,12 +40,12 @@ public class Product {
     @Column(name = "discountDefault")
     private Integer discountDefault;
 
-    public Integer getId() {
-        return id;
+    public Integer getProductID() {
+        return productID;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setProductID(Integer productID) {
+        this.productID = productID;
     }
 
     public String getName() {
@@ -120,4 +120,19 @@ public class Product {
         this.discountDefault = discountDefault;
     }
 
+    @Override
+    public String toString() {
+        return "Product{" +
+                "productID=" + productID +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                ", description='" + description + '\'' +
+                ", img='" + img + '\'' +
+                ", categoryID=" + categoryID +
+                ", quanlityStock=" + quanlityStock +
+                ", quanlitySell=" + quanlitySell +
+                ", createAt=" + createAt +
+                ", discountDefault=" + discountDefault +
+                '}';
+    }
 }

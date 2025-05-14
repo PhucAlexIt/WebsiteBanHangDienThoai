@@ -8,16 +8,15 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import StoreAddress from './pages/StoreAddress';
+import ProductDetailPage from './pages/ProductDetailPage'
 import App from './App';
 import HomePage from './pages/HomePage';
-
 
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
-    // errorElement: <ErrorPage />,
     children: [
       {
         index: true,
@@ -31,7 +30,6 @@ const router = createBrowserRouter([
         path: "/product/:id",
         element: <ProductDetailPage />,
       },
-
     ]
   },
 

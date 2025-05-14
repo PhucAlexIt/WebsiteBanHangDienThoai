@@ -12,7 +12,7 @@ const Top10Sell = () => {
         fetch(instandURL + '/getTop10Sell')
             .then(response => response.json())
             .then(data => {
-                console.log("data nhận về", data)
+
                 setTopSell(data);
             })
             .catch(error => {

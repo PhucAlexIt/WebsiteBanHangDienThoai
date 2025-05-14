@@ -1,13 +1,18 @@
+import { Navigate, useNavigate } from "react-router-dom";
 import priceAfter from "../../services/GetDiscountPrice";
 
+
 const ProductCard = ({ product }) => {
-    const goToDetail = (id) => {
-        // Tùy bạn định nghĩa hàm điều hướng đến chi tiết sản phẩm ở đâu
-        console.log('Đi đến chi tiết sản phẩm ID:', id);
-    };
+
+    const navigate = useNavigate();
+    const goToProDetail = (id) => {
+        var url = "/product/" + id;
+        console.log(url)
+        navigate("/product/" + id);
+    }
 
     return (
-        <div className="product_card" onClick={() => goToDetail(product.productID)}>
+        <div className="product_card" onClick={() => goToProDetail(product.productID)}>
             <div className="card_image">
                 <img src={product.img} alt="product" />
             </div>
