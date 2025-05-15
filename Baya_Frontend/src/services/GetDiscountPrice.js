@@ -7,11 +7,3 @@ const priceAfter = (originalPrice, discountPercent) => {
 export default priceAfter
 
 
-function goToProDetail(id) {
-
-
-    var url = "detailProduct?id=" + id;
-    window.location.href = url;
-
-
-}

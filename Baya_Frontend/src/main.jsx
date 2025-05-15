@@ -11,6 +11,9 @@ import StoreAddress from './pages/StoreAddress';
 import ProductDetailPage from './pages/ProductDetailPage'
 import App from './App';
 import HomePage from './pages/HomePage';
+import Admin from './Admin'
+import DashboardAdmin from './pages/DashboardAdmin';
+import ProductAdmin from './pages/ProductAdmin';
 
 
 const router = createBrowserRouter([
@@ -31,6 +34,23 @@ const router = createBrowserRouter([
         element: <ProductDetailPage />,
       },
     ]
+  },
+  
+  {
+    path: "/admin",
+    element: <Admin />,
+    children: [
+      {
+        index: true,
+        element: <DashboardAdmin />
+      },
+      {
+        path: "product",
+        element: <ProductAdmin />,
+      },
+
+    ],
+
   },
 
 ]);

@@ -23,23 +23,12 @@ public class ProductAdminController {
 
     @GetMapping("/")
     public ResponseEntity getAllProduct() {
-
         return ResponseEntity.ok(productService.listAllProduct());
     }
 
     @PostMapping("/create")
     public ResponseEntity<Product> addProduct(@RequestBody ProductDTO productDTO) {
-//        Product pr = new Product();
-//        pr.setName("tilte");
-//        pr.setPrice(22.0);
-//        pr.setDiscountDefault(10);
-//        pr.setProductID("22");
-//        pr.setQuanlitySell(100);
-//        pr.setQuanlityStock(300);
-//        ProductDTO dto = modelMapper.map(pr, ProductDTO.class);
-//        System.out.println(dto.toString());
 
-//        Product product = modelMapper.map(productDTO, Product.class);
         Product prod = productService.addProduct(modelMapper.map(productDTO, Product.class));
         if (prod != null) {
             return ResponseEntity.ok(prod);
@@ -48,10 +37,6 @@ public class ProductAdminController {
         }
 
 
-//        System.out.println(product);
-//        Product newProduct = productService.addProduct(product);
-//        return ResponseEntity.ok(prod);
-
-
     }
+
 }
