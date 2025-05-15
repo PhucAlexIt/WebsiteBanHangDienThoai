@@ -14,6 +14,7 @@ const DashboardAdmin = () => {
 
 
                 <div className="row">
+
                     <div className="col-xl-3 col-md-6 mb-4">
                         <div className="card border-left-primary shadow h-100 py-2">
                             <div className="card-body">
