@@ -10,12 +10,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
-
     "datatables.net": "^2.3.0",
     "datatables.net-dt": "^2.3.0",
+    "frontend": "file:",
     "jquery": "^3.7.1",
-
     "react": "^19.1.0",
+    "react-data-table-component": "^7.7.0",
     "react-dom": "^19.1.0",
     "react-router-dom": "^7.6.0",
     "styled-components": "^6.1.18"

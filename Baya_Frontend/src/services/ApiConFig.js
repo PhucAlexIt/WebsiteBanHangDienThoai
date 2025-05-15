@@ -1,4 +1,2 @@
-
-
-const instandURL = 'http://localhost:8081'
-export default instandURL
+const instandURL = "http://localhost:8081";
+export default instandURL;

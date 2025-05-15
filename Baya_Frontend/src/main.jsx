@@ -15,7 +15,7 @@ import Admin from './Admin'
 import DashboardAdmin from './pages/DashboardAdmin';
 
 import ProductAdmin from './pages/ProductAdmin';
-
+import PromotionAdmin from './pages/PromotionAdmin';
 
 
 const router = createBrowserRouter([
@@ -51,7 +51,10 @@ const router = createBrowserRouter([
         path: "product",
         element: <ProductAdmin />,
       },
-
+      {
+        path: "promotion",
+        element: <PromotionAdmin />,
+      }
 
     ],
 
