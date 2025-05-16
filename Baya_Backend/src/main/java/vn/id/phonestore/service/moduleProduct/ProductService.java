@@ -29,15 +29,12 @@ public class ProductService {
     public Product getProduct(Integer productID){
         return productRepository.getProductByProductID(productID);
     }
-    public boolean existProductById(Integer productID){
+    public boolean existProductById(Long productID){
         return productRepository.existsById(productID);
     }
-    public void deleteByID (Integer id){
-        productRepository.deleteById(id);
+    public void deleteByID (Long productID){
+        productRepository.deleteById(productID);
 
     }
-
-
-
 
 }
