@@ -1,0 +1,104 @@
+.promotion-form-container {
+  margin: 30px;
+  padding: 30px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  font-family: Arial, sans-serif;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.promotion-form .form-row {
+  margin-bottom: 20px;
+}
+
+.promotion-form label {
+  margin-top: 10px;
+  margin-bottom: 5px;
+  font-size: 12px;
+  color: #3D3D3D;
+  text-transform: uppercase;
+  font-weight: 500;
+  line-height: 24px;
+  display: block;
+}
+
+.promotion-form input {
+  width: 100%;
+  height: 45px;
+  padding: 8px;
+  border-radius: 8px;
+  background-color: #FAFAFA;
+  border: 1px solid #DEDEDE;
+  color: #4B5563;
+}
+
+.promotion-form select,
+.promotion-form textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  background-color: #FAFAFA;
+  border: 1px solid #DEDEDE;
+  border-radius: 5px;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.promotion-form .form-grid {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.promotion-form .form-col {
+  flex: 1;
+}
+
+.promotion-form .submit-btn {
+  padding: 12px 12px 12px;
+  background-color: #28a745;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.promotion-form .submit-btn:hover {
+  background: #24b844;
+}
+
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.cancel-btn {
+  background-color: #f44336; 
+  border: none;
+  padding: 12px 12px 12px;
+  margin-left: 15px;
+  cursor: pointer;
+  border-radius: 8px;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.cancel-btn:hover {
+  background-color: #d32f2f; 
+}
