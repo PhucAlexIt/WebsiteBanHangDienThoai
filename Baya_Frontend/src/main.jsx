@@ -16,6 +16,7 @@ import DashboardAdmin from './pages/DashboardAdmin';
 
 import ProductAdmin from './pages/ProductAdmin';
 import PromotionAdmin from './pages/PromotionAdmin';
+import SearchPage from "./pages/SearchPage.jsx";
 
 
 const router = createBrowserRouter([
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
       {
         path: "/product/:id",
         element: <ProductDetailPage />,
+      },
+      {
+        path: "/search",
+        element: <SearchPage />,
       },
     ]
   },
