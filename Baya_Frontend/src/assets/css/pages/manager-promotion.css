@@ -1,0 +1,48 @@
+.container {
+  padding: 30px 40px 20px 40px; /* top, right, bottom, left */
+}
+
+/* Đổi màu header */
+#promotionTable thead th {
+    background-color: rgb(42, 131, 233); /* xanh bootstrap */
+    border-color: rgb(233, 236, 239);
+    color: white;
+    text-align: center;
+    vertical-align: middle;
+}
+
+/* Canh giữa các cột số */
+#promotionTable td,
+#promotionTable th {
+    vertical-align: middle;
+    text-align: center;
+    border-color: rgb(233, 236, 239);
+}
+
+/* Đổi màu hover hàng */
+#promotionTable tbody tr:hover {
+    background-color: #dbeafe; /* xanh nhạt */
+    cursor: pointer;
+}
+
+#promotionTable_length {
+    margin-bottom: 20px !important;
+}
+
+#btn-add {
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #4caf50, #087f23); /* gradient xanh đẹp */
+  color: white !important;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  margin-bottom: 20px;
+}
+
+#btn-add:hover {
+  background: linear-gradient(135deg, #087f23, #4caf50);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+}

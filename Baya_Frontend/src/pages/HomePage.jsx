@@ -10,7 +10,6 @@ const HomePage = () => {
             <BannerComp />
             <BlockTop10Discounts />
             <Top10Sell />
-
         </>
 
     )

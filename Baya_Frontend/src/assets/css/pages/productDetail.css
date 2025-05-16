@@ -461,6 +461,22 @@
 
 }
 
+.moving-img {
+    position: absolute;
+    left: 20px;
+    animation: moveX 3s infinite alternate ease-in-out;
+}
+
+@keyframes moveX {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(300px);
+    }
+}
+
 .btn_view:hover {
     transition: 0.3s ease, transform 0.3s ease;
     background-color: var(--bg-header-item);
