@@ -1,19 +1,11 @@
-import { Link } from "react-router-dom"
-import { useState } from "react";
-import axios from "axios";
+import {Link, useNavigate} from "react-router-dom"
+import {useState} from "react";
 
 const HeaderComp = () => {
+    const navigate = useNavigate();
     const [keyword, setKeyword] = useState("");
-    const [results, setResults] = useState([]);
-
-    const handleSearch = async (e) => {
-        e.preventDefault();
-        try {
-            const response = await axios.get(`https://localhost:8080/search?keyword=${keyword}`);
-            setResults(response.data);
-        } catch (error) {
-            console.error("Lỗi khi tìm kiếm:", error);
-        }
+    const handleSearch = () => {
+        navigate(`/search?query=${encodeURIComponent(keyword)}`);
     };
 
     return (
@@ -22,7 +14,7 @@ const HeaderComp = () => {
                 <div className="header_main">
 
                     <div className="header_logo">
-                        <Link to="/"><img src="./src/assets/images/logo/logo-final (3) (1).png" alt="logo" /> </Link>
+                        <Link to="/"><img src="./src/assets/images/logo/logo-final (3) (1).png" alt="logo"/> </Link>
                     </div>
                     <div to="" className="header_item item_category " onclick="openCategory()">
 
@@ -34,21 +26,14 @@ const HeaderComp = () => {
                         </div>
                     </div>
 
-                    {/*<div className="header_search">*/}
-                    {/*    <button type="submit" className="search_box search_box_color">*/}
-                    {/*        <i className="fa-solid fa-magnifying-glass"></i>*/}
-                    {/*    </button>*/}
-                    {/*    <input type="text" className="search_input " placeholder="Bạn tìm gì..." />*/}
-                    {/*</div>*/}
-
-                    <form className="header_search" onSubmit={handleSearch}>
-                        <button type="submit" className="search_box search_box_color">
+                    <div className="header_search">
+                        <div type="submit" className="search_box search_box_color" onClick={handleSearch}>
                             <i className="fa-solid fa-magnifying-glass"></i>
-                        </button>
-                        <input type="text" className="search_input" placeholder="Bạn tìm gì..." value={keyword} onChange={(e) => setKeyword(e.target.value)}/>
-                    </form>
-
-
+                        </div>
+                        <input type="text" className="search_input " placeholder="Bạn tìm gì..."
+                               onChange={(e) => setKeyword(e.target.value)}
+                        />
+                    </div>
 
                     <Link to="cart.html" target="_blank" className="header_item">
                         <div className="item_box ">
@@ -86,19 +71,6 @@ const HeaderComp = () => {
 
 
                 </div>
-            </div>
-
-            {/* Danh sách kết quả hiển thị tạm dưới header */}
-            <div className="search_results" style={{ padding: "10px 20px", background: "#f9f9f9"}}>
-                {results.length > 0 && (
-                    <ul>
-                        {results.map((product) => (
-                            <li key={product.id}>
-                                <strong>{product.name}</strong> - {product.price}đ
-                            </li>
-                        ))}
-                    </ul>
-                )}
             </div>
         </>
     )
