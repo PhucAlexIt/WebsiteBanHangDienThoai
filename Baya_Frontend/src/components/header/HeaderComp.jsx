@@ -1,6 +1,21 @@
 import { Link } from "react-router-dom"
+import { useState } from "react";
+import axios from "axios";
 
 const HeaderComp = () => {
+    const [keyword, setKeyword] = useState("");
+    const [results, setResults] = useState([]);
+
+    const handleSearch = async (e) => {
+        e.preventDefault();
+        try {
+            const response = await axios.get(`https://localhost:8080/search?keyword=${keyword}`);
+            setResults(response.data);
+        } catch (error) {
+            console.error("Lỗi khi tìm kiếm:", error);
+        }
+    };
+
     return (
         <>
             <div className="header">
@@ -19,12 +34,19 @@ const HeaderComp = () => {
                         </div>
                     </div>
 
-                    <div className="header_search">
+                    {/*<div className="header_search">*/}
+                    {/*    <button type="submit" className="search_box search_box_color">*/}
+                    {/*        <i className="fa-solid fa-magnifying-glass"></i>*/}
+                    {/*    </button>*/}
+                    {/*    <input type="text" className="search_input " placeholder="Bạn tìm gì..." />*/}
+                    {/*</div>*/}
+
+                    <form className="header_search" onSubmit={handleSearch}>
                         <button type="submit" className="search_box search_box_color">
                             <i className="fa-solid fa-magnifying-glass"></i>
                         </button>
-                        <input type="text" className="search_input " placeholder="Bạn tìm gì..." />
-                    </div>
+                        <input type="text" className="search_input" placeholder="Bạn tìm gì..." value={keyword} onChange={(e) => setKeyword(e.target.value)}/>
+                    </form>
 
 
 
@@ -66,6 +88,18 @@ const HeaderComp = () => {
                 </div>
             </div>
 
+            {/* Danh sách kết quả hiển thị tạm dưới header */}
+            <div className="search_results" style={{ padding: "10px 20px", background: "#f9f9f9"}}>
+                {results.length > 0 && (
+                    <ul>
+                        {results.map((product) => (
+                            <li key={product.id}>
+                                <strong>{product.name}</strong> - {product.price}đ
+                            </li>
+                        ))}
+                    </ul>
+                )}
+            </div>
         </>
     )
 }
