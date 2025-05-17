@@ -1,29 +1,42 @@
-import { Link } from "react-router-dom"
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom"
 
 const HeaderComp = () => {
+    const navigate = useNavigate();
+    const [keyword, setKeyword] = useState("");
+    const handleSearch = () => {
+
+        navigate(`/search?query=${encodeURIComponent(keyword)}`);
+
+    };
+
     return (
         <>
+
             <div className="header">
                 <div className="header_main">
 
                     <div className="header_logo">
                         <Link to="/"><img src="./src/assets/images/logo/logo-final (3) (1).png" alt="logo" /> </Link>
                     </div>
-                    <div to="" className="header_item item_category " onclick="openCategory()">
+                    <div to="/admin" className="header_item item_category " onclick="openCategory()">
 
                         <div className="item_box ">
                             <i className="fa-solid fa-bars"></i>
                         </div>
                         <div className="item_content">
-                            <p>Danh mục</p>
+                            <p>Admin</p>
                         </div>
                     </div>
 
                     <div className="header_search">
-                        <button type="submit" className="search_box search_box_color">
+                        <div type="submit" className="search_box search_box_color" onClick={handleSearch}>
                             <i className="fa-solid fa-magnifying-glass"></i>
-                        </button>
-                        <input type="text" className="search_input " placeholder="Bạn tìm gì..." />
+                        </div>
+                        <input type="text" className="search_input " placeholder="Bạn tìm gì..."
+
+                            onChange={(e) => setKeyword(e.target.value)}
+                        />
                     </div>
 
 
