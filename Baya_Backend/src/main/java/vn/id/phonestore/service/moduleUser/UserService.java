@@ -21,7 +21,7 @@ public class UserService {
         Integer id = deleteDTO.getId();
         String fullName = deleteDTO.getFullName();
          if (id != null && fullName != null) {
-            User user = userRepository.getUserByUserID(id);
+            User user = userRepository.getUserById(id);
             if (user != null && user.getFullName().equals(fullName)) {
                 userRepository.deleteById(id);
             } else {
