@@ -30,7 +30,7 @@ const SpecificationComp = (props) => {
                                 </li>
                                 <li>
                                     <h3>Hãng sản xuất: </h3>
-                                    <p> {props.categoryID}</p>
+                                    <p> {props.category}</p>
                                 </li>
                                 <li>
                                     <h3>Tiện ích: </h3>

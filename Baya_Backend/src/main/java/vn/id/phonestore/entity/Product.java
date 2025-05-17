@@ -1,138 +1,56 @@
 package vn.id.phonestore.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
+import lombok.Data;
 
 import java.time.Instant;
 
 @Entity
 @Table(name = "products")
+@Data
 public class Product {
     @Id
     @Column(name = "productID", nullable = false)
+    @JsonProperty("productID")
     private Integer productID;
 
     @Column(name = "name")
+    @JsonProperty("name")
     private String name;
 
     @Column(name = "price")
+    @JsonProperty("price")
     private Double price;
 
     @Lob
     @Column(name = "description")
+    @JsonProperty("description")
     private String description;
 
     @Column(name = "img")
+    @JsonProperty("img")
     private String img;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "categoryID")
-    private Category categoryID;
+    @JsonProperty("category")
+    private Category category;
 
     @Column(name = "quanlityStock")
+    @JsonProperty("quanlityStock")
     private Integer quanlityStock;
 
     @Column(name = "quanlitySell")
+    @JsonProperty("quanlitySell")
     private Integer quanlitySell;
 
     @Column(name = "createAt")
+    @JsonProperty("createAt")
     private Instant createAt;
 
     @Column(name = "discountDefault")
+    @JsonProperty("discountDefault")
     private Integer discountDefault;
 
-    public Integer getProductID() {
-        return productID;
-    }
-
-    public void setProductID(Integer productID) {
-        this.productID = productID;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Double getPrice() {
-        return price;
-    }
-
-    public void setPrice(Double price) {
-        this.price = price;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getImg() {
-        return img;
-    }
-
-    public void setImg(String img) {
-        this.img = img;
-    }
-
-    public Category getCategoryID() {
-        return categoryID;
-    }
-
-    public void setCategoryID(Category categoryID) {
-        this.categoryID = categoryID;
-    }
-
-    public Integer getQuanlityStock() {
-        return quanlityStock;
-    }
-
-    public void setQuanlityStock(Integer quanlityStock) {
-        this.quanlityStock = quanlityStock;
-    }
-
-    public Integer getQuanlitySell() {
-        return quanlitySell;
-    }
-
-    public void setQuanlitySell(Integer quanlitySell) {
-        this.quanlitySell = quanlitySell;
-    }
-
-    public Instant getCreateAt() {
-        return createAt;
-    }
-
-    public void setCreateAt(Instant createAt) {
-        this.createAt = createAt;
-    }
-
-    public Integer getDiscountDefault() {
-        return discountDefault;
-    }
-
-    public void setDiscountDefault(Integer discountDefault) {
-        this.discountDefault = discountDefault;
-    }
-
-    @Override
-    public String toString() {
-        return "Product{" +
-                "productID=" + productID +
-                ", name='" + name + '\'' +
-                ", price=" + price +
-                ", description='" + description + '\'' +
-                ", img='" + img + '\'' +
-                ", categoryID=" + categoryID +
-                ", quanlityStock=" + quanlityStock +
-                ", quanlitySell=" + quanlitySell +
-                ", createAt=" + createAt +
-                ", discountDefault=" + discountDefault +
-                '}';
-    }
 }

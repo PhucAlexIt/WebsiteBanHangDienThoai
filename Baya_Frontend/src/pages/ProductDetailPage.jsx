@@ -38,7 +38,7 @@ const ProductDetailPage = () => {
                     <li><a href="">Điện thoại</a></li>
                     <li>/</li>
                     <li><a href="">{product ? (
-                        <h1>{product.categoryID.name}</h1>
+                        <h1>{product.category.name}</h1>
                     ) : (
                         <h1>Loading</h1>
                     )}</a></li>
@@ -59,7 +59,7 @@ const ProductDetailPage = () => {
                     <PolicyDetail />
                     <SpecificationComp
                         name={product ? (product.name) : ("")}
-                        categoryID={product ? (product.categoryID.name) : ("")}
+                        category={product ? (product.category.name) : ("")}
                         createAt={product ? (product.createAt) : ("")}
 
 
