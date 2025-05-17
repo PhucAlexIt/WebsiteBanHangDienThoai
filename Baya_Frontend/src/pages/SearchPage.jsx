@@ -3,16 +3,13 @@ import ProductCard from "../components/card/ProductCard"
 import { useEffect, useState } from "react";
 import instandURL from "../services/ApiConFig"
 
-
-
 const SearchPage = () => {
 
     const [searchParams] = useSearchParams();
     const [products, setProducts] = useState([]);
     const [message, setMessage] = useState("");
     const query = searchParams.get("query");
-    
-    
+
     useEffect(() => {
 
 
@@ -136,4 +133,5 @@ const SearchPage = () => {
         </>
     )
 }
+
 export default SearchPage

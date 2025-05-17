@@ -1,12 +1,16 @@
-import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom"
+
+import {Link, useNavigate} from "react-router-dom"
+import {useState} from "react";
+
 
 const HeaderComp = () => {
     const navigate = useNavigate();
     const [keyword, setKeyword] = useState("");
     const handleSearch = () => {
 
+
         navigate(`/search?query=${encodeURIComponent(keyword)}`);
+
 
     };
 
@@ -17,7 +21,7 @@ const HeaderComp = () => {
                 <div className="header_main">
 
                     <div className="header_logo">
-                        <Link to="/"><img src="./src/assets/images/logo/logo-final (3) (1).png" alt="logo" /> </Link>
+                        <Link to="/"><img src="./src/assets/images/logo/logo-final (3) (1).png" alt="logo"/> </Link>
                     </div>
                     <div to="/admin" className="header_item item_category " onclick="openCategory()">
 
@@ -35,11 +39,11 @@ const HeaderComp = () => {
                         </div>
                         <input type="text" className="search_input " placeholder="Bạn tìm gì..."
 
+
                             onChange={(e) => setKeyword(e.target.value)}
+
                         />
                     </div>
-
-
 
                     <Link to="cart.html" target="_blank" className="header_item">
                         <div className="item_box ">
@@ -78,7 +82,6 @@ const HeaderComp = () => {
 
                 </div>
             </div>
-
         </>
     )
 }

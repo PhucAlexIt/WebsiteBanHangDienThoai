@@ -16,7 +16,11 @@ import DashboardAdmin from './pages/DashboardAdmin';
 
 import ProductAdmin from './pages/ProductAdmin';
 import PromotionAdmin from './pages/PromotionAdmin';
-import SearchPage from './pages/SearchPage';
+
+import SearchPage from "./pages/SearchPage.jsx";
+import AddPromotionAdmin from './pages/AddPromotionAdmin';
+import EditPromotionAdmin from './pages/EditPromotionAdmin';
+
 
 
 const router = createBrowserRouter([
@@ -42,6 +46,10 @@ const router = createBrowserRouter([
         path: "/product/:id",
         element: <ProductDetailPage />,
       },
+      {
+        path: "/search",
+        element: <SearchPage />,
+      },
     ]
   },
 
@@ -61,6 +69,14 @@ const router = createBrowserRouter([
       {
         path: "promotion",
         element: <PromotionAdmin />,
+      },
+      {
+        path: "add-promotion",
+        element: <AddPromotionAdmin />,
+      },
+      {
+        path: "edit-promotion/:id",
+        element: <EditPromotionAdmin />,
       }
 
     ],
