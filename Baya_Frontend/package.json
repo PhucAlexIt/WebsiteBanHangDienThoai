@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "bootstrap": "^5.3.6",
     "datatables.net": "^2.3.0",
     "datatables.net-dt": "^2.3.0",
     "frontend": "file:",

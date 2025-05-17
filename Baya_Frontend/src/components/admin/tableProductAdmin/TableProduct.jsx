@@ -32,7 +32,7 @@ const TableProduct = () => {
                         },
                         {
                             title: "Danh mục",
-                            data: "categoryID.name",
+                            data: "category.name",
                         },
                         {
                             title: "Giảm giá",

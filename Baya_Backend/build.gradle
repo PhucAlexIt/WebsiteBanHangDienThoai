@@ -1,7 +1,8 @@
 plugins {
 	id 'java'
-	id 'org.springframework.boot' version '3.4.5'
-	id 'io.spring.dependency-management' version '1.1.7'
+	id 'org.springframework.boot' version '3.3.5'
+	id 'io.spring.dependency-management' version '1.1.6'
+	id 'org.hidetake.ssh' version '2.11.2'
 }
 
 group = 'vn.id.phonestore'
@@ -11,6 +12,8 @@ java {
 	toolchain {
 		languageVersion = JavaLanguageVersion.of(21)
 	}
+	sourceCompatibility = JavaVersion.VERSION_17
+	targetCompatibility = JavaVersion.VERSION_17
 }
 
 repositories {
@@ -18,17 +21,102 @@ repositories {
 }
 
 dependencies {
-	implementation("com.mysql:mysql-connector-j")
-	implementation("org.springframework.data:spring-data-jpa")
-	implementation("org.modelmapper:modelmapper:3.1.1")
-	implementation("org.springframework.boot:spring-boot-starter-web")
-	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
-	developmentOnly("org.springframework.boot:spring-boot-devtools")
+	implementation 'com.mysql:mysql-connector-j:8.0.33'
+	implementation 'org.springframework.data:spring-data-jpa'
+	implementation 'org.modelmapper:modelmapper:3.1.1'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	implementation 'org.springframework.boot:spring-boot-starter'
+	// https://mvnrepository.com/artifact/org.projectlombok/lombok
+	compileOnly("org.projectlombok:lombok")
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
 tasks.named('test') {
 	useJUnitPlatform()
+}
+
+tasks.withType(JavaCompile) {
+	options.encoding = 'UTF-8'
+}
+
+tasks.withType(Javadoc) {
+	options.encoding = 'UTF-8'
+}
+
+bootJar {
+	archiveFileName = 'bayastore.jar'
+}
+
+ssh.settings {
+	knownHosts = allowAnyHosts
+}
+
+remotes {
+	host {
+		host = '103.130.215.109'
+		user = 'root'
+		password = 'nTpr#d5UJJ%k?Pv'
+	}
+}
+
+task docker_upload_file_to_server {
+	doLast {
+		println 'Đang tải tệp JAR lên máy chủ...'
+		ssh.run {
+			session(remotes.host) {
+				execute 'mkdir -p /home/phuc/deploy'
+				execute 'rm -f /home/phuc/deploy/bayastore.jar', ignoreError: true
+				put from: "${project.projectDir}/build/libs/bayastore.jar",
+						into: "/home/phuc/deploy/bayastore.jar"
+			}
+		}
+	}
+}
+
+task deploy {
+	doLast {
+		println 'Đang khởi động ứng dụng Spring Boot trong Docker...'
+		ssh.run {
+			session(remotes.host) {
+				execute 'docker stop spring-app', ignoreError: true
+				execute 'docker run -it --rm -d ' +
+						'--name spring-app ' +
+						'-v /home/phuc/deploy:/app ' +
+						'--network noithat-net ' +
+						'-p 80:8080 ' +
+						'openjdk:21-jdk-slim ' +
+						'java -jar /app/bayastore.jar'
+			}
+		}
+	}
+}
+
+task mysql_upload_sql_file_to_server {
+	doLast {
+		println 'Đang tải tệp SQL lên máy chủ...'
+		ssh.run {
+			session(remotes.host) {
+				execute 'mkdir -p /home/phuc/deploy'
+				execute 'rm -f /home/phuc/deploy/bayastore.sql', ignoreError: true
+				put from: "${project.projectDir}/sql/bayastore.sql",
+						into: "/home/phuc/deploy/bayastore.sql"
+			}
+		}
+	}
+}
+
+task mysql_import_sql_to_container {
+	doLast {
+		println 'Đang nhập tệp SQL vào container MySQL...'
+		ssh.run {
+			session(remotes.host) {
+				execute "docker cp /home/phuc/deploy/bayastore.sql mysql:/tmp/bayastore.sql"
+				execute "docker exec mysql bash -c 'mysql -u root -p12345 < /tmp/bayastore.sql'"
+				execute "docker exec mysql bash -c 'rm /tmp/bayastore.sql'"
+			}
+		}
+	}
 }

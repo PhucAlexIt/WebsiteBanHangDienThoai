@@ -10,7 +10,6 @@ const SearchPage = () => {
     const [message, setMessage] = useState("");
     const query = searchParams.get("query");
 
-
     useEffect(() => {
 
 
