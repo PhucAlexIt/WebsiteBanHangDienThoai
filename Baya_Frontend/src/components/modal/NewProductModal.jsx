@@ -19,7 +19,7 @@ const NewProductModal = ({ isOpen, onClose, onSubmit }) => {
         },
         discountDefault: '',
         description: '',
-        quantityStock: '',
+        quanlityStock: '',
     });
 
     const handleFormChange = (e) => {
@@ -51,7 +51,7 @@ const NewProductModal = ({ isOpen, onClose, onSubmit }) => {
 
 
     const validateFormData = async () => {
-        const { name, img, price, category, discountDefault, description, quantityStock } = formData;
+        const { name, img, price, category, discountDefault, description, quanlityStock } = formData;
 
         if (!name.trim()) {
             errorSwall("Tên sản phẩm không được để trống.");
@@ -87,7 +87,7 @@ const NewProductModal = ({ isOpen, onClose, onSubmit }) => {
             return false;
         }
 
-        if (!quantityStock || isNaN(quantityStock) || Number(quantityStock) < 0) {
+        if (!quanlityStock || isNaN(quanlityStock) || Number(quanlityStock) < 0) {
             errorSwall("Số lượng tồn kho chưa hợp lệ.");
             return false;
         }
@@ -241,10 +241,10 @@ const NewProductModal = ({ isOpen, onClose, onSubmit }) => {
                             <input
                                 type="number"
                                 className="form-control"
-                                id="quantityStock"
-                                name="quantityStock"
+                                id="quanlityStock"
+                                name="quanlityStock"
                                 placeholder="Lượng hàng đang có"
-                                value={formData.quantityStock}
+                                value={formData.quanlityStock}
                                 onChange={handleFormChange}
                             />
                         </div>

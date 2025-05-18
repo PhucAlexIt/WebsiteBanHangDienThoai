@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import TableProduct from "../components/admin/tableProductAdmin/TableProduct";
 import NewProductModal from "../components/modal/NewProductModal";
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import { successSwall, errorSwall } from '../services/Swall'
 const ProductAdmin = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [refreshTrigger, setRefreshTrigger] = useState(0); // State to trigger table refresh
@@ -30,6 +30,36 @@ const ProductAdmin = () => {
         }
         setIsModalOpen(false);
     };
+
+
+
+    function remove_btn(id) {
+        var feature = {
+            featureID: $("#featureID_remove").val(),
+        }
+        $.ajax({
+            url: "/removeResource",
+            type: "POST",
+            contentType: "application/json",
+            data: JSON.stringify(feature),
+            dataType: "json",
+            success: function (response) {
+                if (response.success) {
+                    $("#openModal").modal("hide");
+                    successSwall("Đã xóa thành công");
+
+
+                } else {
+                    errorSwall("Đã xảy ra lỗi");
+                }
+            },
+
+        });
+
+
+
+    }
+
 
     return (
         <>
