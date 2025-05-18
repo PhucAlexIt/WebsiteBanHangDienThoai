@@ -6,4 +6,5 @@ import vn.id.phonestore.entity.Promotion;
 
 @Repository
 public interface PromotionRepository extends JpaRepository<Promotion, Integer> {
+    Promotion findByName(String name);
 }

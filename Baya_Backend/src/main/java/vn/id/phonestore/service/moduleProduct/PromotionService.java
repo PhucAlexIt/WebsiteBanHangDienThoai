@@ -19,6 +19,12 @@ public class PromotionService {
     }
 
     public Promotion createPromotion(PromotionDTO dto) {
+        Promotion existingPromotion = promotionRepository.findByName(dto.getName());
+
+        if (existingPromotion != null) {
+            throw new IllegalArgumentException("Tên chương trình khuyến mãi đã tồn tại.");
+        }
+
         Promotion promotion = new Promotion();
         promotion.setName(dto.getName());
         promotion.setDescription(dto.getDescription());
@@ -29,6 +35,7 @@ public class PromotionService {
         promotion.setCreatedAt(Instant.now());
         promotion.setUpdatedAt(Instant.now());
 
+        //22.1.8. PromotionReposity gọi save() để lưu vào cơ sở dữ liệu
         return promotionRepository.save(promotion);
     }
 
@@ -53,4 +60,14 @@ public class PromotionService {
     public Promotion getPromotionById(Integer id) {
         return promotionRepository.findById(id).orElse(null);
     }
+
+    public boolean deletePromotionById(Integer id) {
+        Promotion promotion = promotionRepository.findById(id).orElse(null);
+        if (promotion != null) {
+            promotionRepository.deleteById(id);
+            return true;
+        }
+        return false;
+    }
+
 }

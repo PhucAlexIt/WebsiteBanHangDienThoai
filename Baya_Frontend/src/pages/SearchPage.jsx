@@ -51,7 +51,7 @@ const SearchPage = () => {
                         <button className="sort-button">Giảm giá</button>
                         <button className="sort-button">Mới</button>
                         <button className="sort-button btn_hover-price">
-                            <p>Giá </p>
+                            <p> Giá </p>
                             <ul>
                                 <li>Từ cao đến thấp</li>
                                 <li>Từ thấp đến cao</li>

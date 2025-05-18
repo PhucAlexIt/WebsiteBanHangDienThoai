@@ -28,10 +28,15 @@ public class PromotionController {
     }
 
     // Thêm chương trình khuyến mãi
+    // 22.1.7. PromotionController gọi PromotionService.createPromotion(PromotionDTO dto)
     @PostMapping("/addPromotion")
-    public ResponseEntity<Promotion> createPromotion(@RequestBody PromotionDTO dto) {
-        Promotion newPromotion = promotionService.createPromotion(dto);
-        return ResponseEntity.ok(newPromotion);
+    public ResponseEntity<?> createPromotion(@RequestBody PromotionDTO dto) {
+        try {
+            Promotion newPromotion = promotionService.createPromotion(dto);
+            return ResponseEntity.ok(newPromotion);
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.status(HttpStatus.CONFLICT).body(e.getMessage());  // 409 Conflict
+        }
     }
 
     @PutMapping("/updatePromotion/{id}")
@@ -52,6 +57,16 @@ public class PromotionController {
             return ResponseEntity.ok(promotion);
         } else {
             return ResponseEntity.notFound().build();
+        }
+    }
+
+    @DeleteMapping("/deletePromotion/{id}")
+    public ResponseEntity<String> deletePromotion(@PathVariable Integer id) {
+        boolean deleted = promotionService.deletePromotionById(id);
+        if (deleted) {
+            return ResponseEntity.ok("Xóa khuyến mãi thành công");
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Không tìm thấy khuyến mãi");
         }
     }
 }
