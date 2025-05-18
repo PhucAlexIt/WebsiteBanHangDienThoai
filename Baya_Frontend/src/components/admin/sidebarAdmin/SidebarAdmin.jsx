@@ -33,7 +33,7 @@ const SidebarAdmin = () => {
 
 
                 <li className="nav-item">
-                    <Link className="nav-link collapsed" to="youtube.com" aria-expanded="true" aria-controls="collapseTwo">
+                    <Link className="nav-link collapsed" to="users" aria-expanded="true" aria-controls="collapseTwo">
                         <i className="fas fa-fw fa-cog"></i>
                         <span>Quản lí người dùng</span>
                     </Link>

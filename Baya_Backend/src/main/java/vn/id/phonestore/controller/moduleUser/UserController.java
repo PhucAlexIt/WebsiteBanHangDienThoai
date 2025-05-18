@@ -10,7 +10,7 @@ import vn.id.phonestore.dtos.UserDTO;
 import vn.id.phonestore.service.moduleUser.UserService;
 
 @RestController
-@RequestMapping("/api/user")
+@RequestMapping("/admin")
 public class UserController {
 
     private final UserService userService;
@@ -20,7 +20,7 @@ public class UserController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> deleteUser(@PathVariable Integer id) {
+    public ResponseEntity deleteUser(@PathVariable Integer id) {
         try {
             boolean deleted = userService.deleteUser(id);
             if (deleted) {
