@@ -1,21 +1,21 @@
 import { useEffect } from "react";
-import instandURL from "../../../services/ApiConFig";
+import instandURL from "../../../services/ApiConFig"
+
 
 const TableProduct = ({ refreshTrigger }) => {
     useEffect(() => {
-        let table;
+        let table
 
         fetch(instandURL + `/admin/product/`)
-            .then((response) => response.json())
-            .then((data) => {
+            .then(response => response.json())
+            .then(data => {
                 console.log("Data from API:", data);
 
-                // Destroy existing DataTable if it exists
+
                 if ($.fn.DataTable.isDataTable("#myTable")) {
                     $("#myTable").DataTable().clear().destroy();
                 }
 
-                // Initialize new DataTable
                 table = $("#myTable").DataTable({
                     data: data,
                     columns: [
@@ -45,6 +45,8 @@ const TableProduct = ({ refreshTrigger }) => {
                                 return row.price.toLocaleString("vi-VN") + " ₫";
                             },
                         },
+
+
                         {
                             title: "Đã bán",
                             data: "quanlitySell",
@@ -76,48 +78,54 @@ const TableProduct = ({ refreshTrigger }) => {
                         },
                     ],
                 });
+
             })
-            .catch((error) => {
+            .catch(error => {
                 console.error("Error fetching data:", error);
             });
 
-        // Cleanup: Destroy DataTable on component unmount
         return () => {
-            if (table) {
-                table.destroy(true);
+
+            if ($.fn.DataTable.isDataTable("#myTable")) {
+                $("#myTable").DataTable().clear().destroy();
             }
         };
-    }, [refreshTrigger]); // Add refreshTrigger to dependency array
+    }, [refreshTrigger]);
 
     return (
         <>
             <div className="row">
                 <div className="col-12 col-lg-12 col-xxl-12 d-flex">
                     <div className="card flex-fill">
-                        <table
-                            className="table pt-2 mt-3 table-bordered table-striped"
-                            id="myTable"
-                        >
+
+                        <table className="table  pt-2 mt-3 table-bordered table-striped"
+                            id="myTable">
                             <thead className="table-dark">
                                 <tr>
-                                    <th style={{ width: "5%" }}>STT</th>
+                                    <th style={{ width: "5%" }} >STT</th>
                                     <th className="d-none d-md-table-cell">Tên sản phẩm</th>
                                     <th className="d-none d-md-table-cell">Danh mục</th>
                                     <th className="d-none d-md-table-cell">Giảm giá</th>
                                     <th className="d-none d-md-table-cell">Giá bán</th>
+
                                     <th className="d-none d-md-table-cell">Đã bán</th>
                                     <th className="d-none d-md-table-cell">Còn tồn kho</th>
+
                                     <th style={{ width: "5%" }}>Sửa</th>
                                     <th style={{ width: "5%" }}>Xóa</th>
+
                                 </tr>
                             </thead>
-                            <tbody></tbody>
+                            <tbody>
+
+
+                            </tbody>
                         </table>
                     </div>
                 </div>
             </div>
         </>
-    );
-};
+    )
 
-export default TableProduct;
+}
+export default TableProduct 
