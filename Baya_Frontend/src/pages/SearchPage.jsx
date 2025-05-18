@@ -15,16 +15,20 @@ const SearchPage = () => {
         setMessage("");
         setProducts([]);
 
+        // 2.1.3.   SearchPage gửi yêu cầu đến SearchController kèm theo keyword
         fetch(`${instandURL}/search?query=${encodeURIComponent(query)}`)
             .then((res) => {
+                // 2.2.2.3. SearchPage nhận và nhận thấy không có sản phẩm nào được trả về, nên hiển thị thông báo trên giao diện: “Không tìm thấy sản phẩm phù hợp.”
                 if (res.status === 204) {
-                    setMessage("Không tìm thấy sản phẩm nào")
+                    setMessage("Không tìm thấy sản phẩm phù hợp.")
                     return [];
                 }
+
                 if (!res.ok) {
                     throw new Error("Đã xảy ra lỗi khi tìm kiếm.");
                 }
-                return res.json();
+
+                return res.json(); // 2.1.10.	SearchPage nhận dữ liệu
             })
             .then((data) => {
                 setProducts(data)
@@ -65,9 +69,11 @@ const SearchPage = () => {
                     </div>
                 </div>
 
-                <div className="product_list sale_list">
-                    {message && <p style={{color: "red", marginBottom: "10px"}}>{message}</p>}
+                {/* 2.2.2.3. SearchPage nhận và nhận thấy không có sản phẩm nào được trả về, nên hiển thị thông báo trên giao diện: “Không tìm thấy sản phẩm phù hợp.” */}
+                {message && <p style={{color: "red", marginBottom: "10px", marginLeft: "15px"}}>{message}</p>}
 
+                <div className="product_list sale_list">
+                    {/* 2.1.10.	SearchPage hiển thị danh sách sản phẩm trên giao diện */}
                     {products.map(product => (
                         <ProductCard
                             product={product}

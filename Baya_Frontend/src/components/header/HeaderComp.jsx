@@ -7,8 +7,10 @@ import "react-toastify/dist/ReactToastify.css";
 
 const HeaderComp = () => {
     const navigate = useNavigate();
-    const [keyword, setKeyword] = useState("");
 
+    // 2.2.0.2. Tại trang đó sẽ kiểm tra nội dung người dùng nhập vào và hiển thị thông báo cho người dùng: “Vui lòng nhập từ khóa tìm kiếm!”
+    // 2.2.1.2. Tại trang đó sẽ kiểm tra nội dung người dùng nhập vào và hiển thị thông báo cho người dùng: “Từ khoá chứa ký tự không hợp lệ!”
+    const [keyword, setKeyword] = useState("");
     const validateKeyword = (kw) => {
         const trimmed = kw.trim();
         if (!trimmed) {
@@ -21,6 +23,8 @@ const HeaderComp = () => {
         return { valid: true };
     };
 
+    // Search Function
+    // 2.1.2.   Hệ thống chuyển hướng đến SearchPage
     const handleSearch = async () => {
         const validation = validateKeyword(keyword);
         if (!validation.valid) {
@@ -81,9 +85,16 @@ const HeaderComp = () => {
                     </div>
 
                     <div className="header_search">
+                        {/* 2.1.1.  người dùng nhấn biểu tượng "Kính lúp" */}
+                        {/* 2.2.0.1. Người dùng nhấn biểu tượng "Kính lúp" */}
+                        {/* 2.2.1.1. Người dùng nhấn biểu tượng "Kính lúp" */}
                         <div type="submit" className="search_box search_box_color" onClick={handleSearch}>
                             <i className="fa-solid fa-magnifying-glass"></i>
                         </div>
+
+                        {/* 2.1.0.  Người dùng nhập từ khoá vào ô tìm kiếm */}
+                        {/* 2.2.0.0. Người dùng để ô tìm kiếm trống không có ký tự nào được nhập hoặc nhập toàn khoảng trắng (nút space) */}
+                        {/* 2.2.1.0. Người dùng nhập vào ô  tìm kiếm các ký tự không hợp lệ */}
                         <input type="text" className="search_input " placeholder="Bạn tìm gì..."
                                value={keyword}
                                onChange={(e) => setKeyword(e.target.value)}
