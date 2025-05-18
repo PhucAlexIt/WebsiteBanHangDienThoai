@@ -33,12 +33,15 @@ public class UserService {
     }
 
 
-
     public boolean deleteUser(Integer id) {
+        // 17.1.9: Nếu tồn tại, Hệ thống gọi deleteById(id) xoá người dùng của lớp userRepository.
         if (userRepository.existsById(id)) {
+            // 17.1.10: Hệ thống nhận yêu cầu và thực hiện truy vấn xoá người dùng khỏi Database.
             userRepository.deleteById(id);
+            // 17.1.11: Hệ thống trả về kết quả đã xoá thành công người dùng.
             return true;
         }
+        // 17.2.11: Hệ thống trả về kết quả thất bại.
         return false;
     }
 }
