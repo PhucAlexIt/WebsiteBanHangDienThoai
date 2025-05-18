@@ -23,9 +23,7 @@ public class ProductService {
     public List<Product> listAllProduct() {
         return productRepository.findAll();
     }
-    public Product addProduct(Product pro){
-        return productRepository.save(pro);
-    }
+
     public Product getProduct(Integer productID){
         return productRepository.getProductByProductID(productID);
     }
@@ -35,6 +33,9 @@ public class ProductService {
     public void deleteByID (Long productID){
         productRepository.deleteById(productID);
 
+    }
+    public Product saveProduct(Product product){
+        return productRepository.save(product);
     }
 
 }

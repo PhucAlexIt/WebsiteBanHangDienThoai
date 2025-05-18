@@ -3,6 +3,7 @@ package vn.id.phonestore.entity;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.Data;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.Instant;
 
@@ -12,7 +13,9 @@ import java.time.Instant;
 public class Product {
     @Id
     @Column(name = "productID", nullable = false)
+
     @JsonProperty("productID")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer productID;
 
     @Column(name = "name")
@@ -47,10 +50,26 @@ public class Product {
 
     @Column(name = "createAt")
     @JsonProperty("createAt")
+    @CreationTimestamp
     private Instant createAt;
 
     @Column(name = "discountDefault")
     @JsonProperty("discountDefault")
     private Integer discountDefault;
 
+    @Override
+    public String toString() {
+        return "Product{" +
+                "productID=" + productID +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                ", description='" + description + '\'' +
+                ", img='" + img + '\'' +
+                ", category=" + category +
+                ", quanlityStock=" + quanlityStock +
+                ", quanlitySell=" + quanlitySell +
+                ", createAt=" + createAt +
+                ", discountDefault=" + discountDefault +
+                '}';
+    }
 }

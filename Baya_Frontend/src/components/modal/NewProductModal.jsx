@@ -1,181 +1,13 @@
-// import React, { useState } from 'react';
-// import 'bootstrap/dist/css/bootstrap.min.css';
-// import ListCategory from '../admin/listCategoryAdmin/ListCategory';
-
-// const NewProductModal = ({ isOpen, onClose, onSubmit }) => {
-//     const [formData, setFormData] = useState({
-//         name: '',
-//         img: '',
-//         categoryID: '',
-//         discountDefault: '',
-//         quanlityStock: '',
-//         description: '',
-
-//     });
-
-//     // Xử lý thay đổi input (họ tên, email, số điện thoại)
-//     const handleInputChange = (e) => {
-//         const { name, value } = e.target;
-//         setFormData((prev) => ({ ...prev, [name]: value }));
-//     };
-
-//     // Xử lý thay đổi checkbox (vai trò)
-//     const handleCheckboxChange = (e) => {
-//         const { value, checked } = e.target;
-//         setFormData((prev) => {
-//             const roles = checked
-//                 ? [...prev.roles, value]
-//                 : prev.roles.filter((role) => role !== value);
-//             return { ...prev, roles };
-//         });
-//     };
-
-//     // Xử lý khi nhấn "Đồng ý"
-//     const handleSubmit = () => {
-//         onSubmit(formData); // Gửi dữ liệu form cho component cha
-//         setFormData({ fullName: '', email: '', phone: '', roles: [] }); // Reset form
-//         onClose(); // Đóng modal
-//     };
-
-//     if (!isOpen) return null; // Không hiển thị modal nếu isOpen = false
-
-//     return (
-//         <div
-//             className="modal fade show"
-//             tabIndex="-1"
-//             aria-labelledby="openModalLabel"
-//             aria-modal="true"
-//             role="dialog"
-//             style={{ display: 'block', backgroundColor: 'rgba(0,0,0,0.5)' }}
-//         >
-//             <div className="modal-dialog modal-lg" >
-//                 <div className="modal-content ">
-//                     <div className="modal-header">
-//                         <h5 className="modal-title" id="openModalLabel">
-//                             Thêm mới sản phẩm
-//                         </h5>
-//                         <button
-//                             type="button"
-//                             className="btn-close"
-//                             onClick={onClose}
-//                             aria-label="Close"
-//                         ></button>
-//                     </div>
-//                     <div className="modal-body">
-//                         <div className="mb-3">
-//                             <label htmlFor="fullName" className="form-label">
-//                                 Tên sản phẩm:
-//                             </label>
-//                             <input
-//                                 type="text"
-//                                 className="form-control"
-//                                 id="fullName"
-//                                 name="fullName"
-//                                 placeholder="Tên sản phẩm"
-//                                 value={formData.fullName}
-//                                 onChange={handleInputChange}
-//                             />
-//                         </div>
-//                         <div className="mb-3">
-//                             <label className="form-label">
-//                                 Link hình ảnh:
-//                             </label>
-//                             <input
-//                                 type="text"
-//                                 className="form-control"
-//                                 id="email"
-//                                 name="email"
-//                                 placeholder="Hình ảnh"
-//                                 value={formData.email}
-//                                 onChange={handleInputChange}
-//                             />
-//                         </div>
-//                         <div className="mb-3">
-//                             <label className="form-label">
-//                                 Giá bán:
-//                             </label>
-//                             <input
-//                                 type="number"
-//                                 className="form-control"
-//                                 id="phone"
-//                                 name="phone"
-//                                 placeholder="Giá bán"
-//                                 value={formData.phone}
-//                                 onChange={handleInputChange}
-//                             />
-//                         </div>
-//                         <div className="mb-3">
-//                             <label className="form-label">
-//                                 Chọn danh mục:
-//                             </label>
-//                             <ListCategory />
-//                         </div>
-//                         <div className="mb-3">
-//                             <label className="form-label">
-//                                 Giảm giá % mặc định:
-//                             </label>
-//                             <input
-//                                 type="number"
-//                                 className="form-control"
-//                                 id="phone"
-//                                 name="phone"
-//                                 placeholder="Giảm giá mặc định"
-//                                 value={formData.phone}
-//                                 onChange={handleInputChange}
-//                             />
-//                         </div>
-//                         <div className="mb-3">
-//                             <label className="form-label">
-//                                 Mô tả sản phẩm:
-//                             </label>
-//                             <textarea class="form-control" id="exampleFormControlTextarea1" rows="4"></textarea>
-//                         </div> <div className="mb-3">
-//                             <label className="form-label">
-//                                 Số lượng hàng đang có:
-//                             </label>
-//                             <input
-//                                 type="number"
-//                                 className="form-control"
-//                                 id="phone"
-//                                 name="phone"
-//                                 placeholder="Lượng hàng đang có"
-//                                 value={formData.phone}
-//                                 onChange={handleInputChange}
-//                             />
-//                         </div>
-
-//                     </div>
-//                     <div className="modal-footer">
-//                         <button type="button" className="btn btn-secondary" onClick={onClose}>
-//                             Hủy
-//                         </button>
-//                         <button
-//                             type="button"
-//                             className="btn btn-danger"
-//                             onClick={handleSubmit}
-//                         >
-//                             Đồng ý
-//                         </button>
-//                     </div>
-//                 </div>
-//             </div>
-//         </div>
-//     );
-// };
-
-// export default NewProductModal;
-
-
-
-
 
 
 
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ListCategory from '../admin/listCategoryAdmin/ListCategory';
-import { data } from 'jquery';
+import instandURL from "../../services/ApiConFig"
 import { errorSwall, successSwall } from "../../services/Swall"
+import TableProduct from "../admin/tableProductAdmin/TableProduct"
+
 const NewProductModal = ({ isOpen, onClose, onSubmit }) => {
     const [formData, setFormData] = useState({
         name: '',
@@ -188,7 +20,6 @@ const NewProductModal = ({ isOpen, onClose, onSubmit }) => {
         discountDefault: '',
         description: '',
         quantityStock: '',
-        createAt: ''
     });
 
     const handleFormChange = (e) => {
@@ -215,6 +46,8 @@ const NewProductModal = ({ isOpen, onClose, onSubmit }) => {
             img.onerror = () => resolve(false);   // URL không hợp lệ hoặc không phải ảnh
         });
     };
+
+
 
 
     const validateFormData = async () => {
@@ -263,19 +96,48 @@ const NewProductModal = ({ isOpen, onClose, onSubmit }) => {
         return true;
     };
 
-
     const handleSubmit = async () => {
         const validate = await validateFormData();
+        console.log("data gui: ", formData); // Use the formData state
+        console.log(instandURL + '/admin/product/');
         if (validate) {
-            successSwall("Dữ liệu hợp lệ. Đang xử lý...");
+            fetch(instandURL + '/admin/product/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData),
+            })
+                .then(response => {
+
+
+                    if (response.status === 201) {
+
+                        successSwall("Đã thêm thành công")
+                        onClose()
+                        return
+
+                    }
+                    if (response.status === 500) {
+                        errorSwall("Đã xảy ra lỗi bên Server.")
+                        return
+                    }
+
+                    return response.json();
+                })
+                .then(data => {
+
+
+
+                })
+                .catch(error => {
+                    errorSwall("Đã xảy ra lỗi.");
+                });
+
+
         }
-        else {
-            console.log("khong hop le")
-        }
-        console.log(formData)
+
         return
-        // onSubmit(submitData);
-        // onClose();
     };
 
     if (!isOpen) return null;

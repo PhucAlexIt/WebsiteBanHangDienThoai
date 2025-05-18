@@ -11,8 +11,8 @@ const SearchPage = () => {
     const [products, setProducts] = useState([]);
     const [message, setMessage] = useState("");
     const query = searchParams.get("query");
-    
-    
+
+
     useEffect(() => {
 
 
@@ -36,14 +36,6 @@ const SearchPage = () => {
             .then((data) => {
                 console.log("Kết quả:", data);
                 setProducts(data)
-
-                // if (data) {
-                //     console.log("Kết quả:", data);
-                //     // setProducts(data); // nếu bạn dùng state
-                // } else {
-                //     // setProducts([]);
-                //     console.log("Không tìm thấy sản phẩm");
-                // }
             })
             .catch((err) => {
                 console.error("Lỗi fetch:", err.message);
