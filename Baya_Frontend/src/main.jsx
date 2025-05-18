@@ -20,6 +20,7 @@ import PromotionAdmin from './pages/PromotionAdmin';
 import SearchPage from "./pages/SearchPage.jsx";
 import AddPromotionAdmin from './pages/AddPromotionAdmin';
 import EditPromotionAdmin from './pages/EditPromotionAdmin';
+import UserAdmin from './pages/UserAdmin';
 
 
 
@@ -64,6 +65,7 @@ const router = createBrowserRouter([
         path: "promotion",
         element: <PromotionAdmin />,
       },
+
       {
         path: "add-promotion",
         element: <AddPromotionAdmin />,
@@ -71,10 +73,12 @@ const router = createBrowserRouter([
       {
         path: "edit-promotion/:id",
         element: <EditPromotionAdmin />,
-      }
-
+      },
+      {
+        path: "users",
+        element: <UserAdmin />,
+      },
     ],
-
   },
 
 ]);
