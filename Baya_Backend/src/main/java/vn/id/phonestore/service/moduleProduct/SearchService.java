@@ -15,6 +15,9 @@ public class SearchService {
     }
 
     public List<Product> searchProducts(String keyword) {
+        // 2.1.5.   SearchService gọi SearchRepository để thực hiện truy vấn
+        // 2.1.8.	SearchService chuyển danh sách sản phẩm cho SearchController
+        // 2.2.2.1. SearchService gửi danh sách rỗng cho SearchController
         return searchRepository.searchByName(keyword);
     }
 }
