@@ -77,6 +77,7 @@ const PromotionForm = ({ promotionId }) => {
         });
       } else {
         // create
+        // 22.1.6. Gửi POST request tới API ${instandURL}/admin/addPromotion bằng fetch() gửi dữ liệu.
         response = await fetch(`${instandURL}/admin/addPromotion`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -84,7 +85,17 @@ const PromotionForm = ({ promotionId }) => {
         });
       }
 
-      if (!response.ok) throw new Error("Lỗi khi lưu dữ liệu");
+      if (!response.ok) {
+        if (response.status === 409) {
+          // Lỗi trùng tên chương trình khuyến mãi
+          const errMsg = await response.text();
+          setError(errMsg || "Tên chương trình khuyến mãi đã tồn tại.");
+        } else {
+          // Lỗi khác
+          setError("Lỗi khi lưu dữ liệu, vui lòng thử lại.");
+        }
+        return;
+      }
 
       alert(promotionId ? "Cập nhật thành công!" : "Thêm mới thành công!");
       navigate("/admin/promotion");
@@ -99,13 +110,15 @@ const PromotionForm = ({ promotionId }) => {
     navigate("/admin/promotion");
   };
 
+
+  // 22.1.4. Nhập đầy đủ thông tin trong form
   return (
     <div className="promotion-form-container">
       <h2>{promotionId ? "Chỉnh sửa Khuyến Mãi" : "Thêm Khuyến Mãi"}</h2>
       <form className="promotion-form" onSubmit={handleSubmit}>
         <div className="form-grid">
           <div className="form-col">
-            <label htmlFor="name">Tên khuyến mãi:</label>
+            <label htmlFor="name">Tên:</label>
             <input
               type="text"
               id="name"
@@ -184,7 +197,10 @@ const PromotionForm = ({ promotionId }) => {
 
         <div>
           <button type="submit" className="submit-btn">
-            {promotionId ? "Lưu thay đổi" : "Thêm khuyến mãi"}
+            {promotionId ? 
+            "Lưu thay đổi" : 
+            // 22.1.5. Click nút "Thêm"
+            "Thêm"}
           </button>
           <button
             type="button"

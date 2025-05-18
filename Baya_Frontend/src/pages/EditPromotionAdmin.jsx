@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import CreatePromotionForm from "../components/admin/tablePromotionAdmin/CreatePromotionForm";
 
 const EditPromotionAdmin = () => {
-  const { id } = useParams(); // lấy id từ URL
+  const { id } = useParams();
 
   return (
     <>
