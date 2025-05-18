@@ -6,7 +6,6 @@ import vn.id.phonestore.entity.User;
 
 import vn.id.phonestore.repository.moduleUser.UserRepository;
 
-import java.util.List;
 
 @Service
 public class UserService {
@@ -17,22 +16,15 @@ public class UserService {
             this.userRepository = userRepository;
         }
 
-    public void deleteUser(UserDTO deleteDTO) {
-        Integer id = deleteDTO.getId();
-        String fullName = deleteDTO.getFullName();
-         if (id != null && fullName != null) {
-            User user = userRepository.getUserById(id);
-            if (user != null && user.getFullName().equals(fullName)) {
-                userRepository.deleteById(id);
-            } else {
-                throw new RuntimeException("Không tìm thấy ID: " + id + " và Tên: " + fullName);
-            }
+    public boolean deleteUser(Integer id) {
+        if (userRepository.existsById(id)) {
+            userRepository.deleteById(id);
+            return true;
         }
-        else {
-            throw new RuntimeException("Thiếu thông tin, vui lòng nhập lại");
-        }
+        return false;
     }
+}
 
 
 
-    }
+
