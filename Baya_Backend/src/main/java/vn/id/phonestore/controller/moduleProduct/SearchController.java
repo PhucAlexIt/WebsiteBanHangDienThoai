@@ -18,22 +18,17 @@ public class SearchController {
     }
 
     @GetMapping
-    public ResponseEntity searchProducts(@RequestParam("query") String keyword) {
-        System.out.println(keyword);
-        if(keyword == null || keyword.isEmpty()) {
-            System.out.println("trương hop null");
-            return ResponseEntity.notFound().build();
-        }
-        List<Product> list = searchService.searchProducts(keyword);
-        System.out.println("list" + list);
-        if(list.isEmpty()) {
-            System.out.println("trương hop bị empt");
-            return ResponseEntity.noContent().build();
-        }
-        else{
-            System.out.println("trương hop dung");
-            return ResponseEntity.ok(list);
-        }
+    public ResponseEntity<List<Product>> searchProducts(@RequestParam("query") String keyword) {
+        try {
+            List<Product> list = searchService.searchProducts(keyword);
 
+            if(list.isEmpty()) {
+                return ResponseEntity.noContent().build();
+            }
+
+            return ResponseEntity.ok(list);
+        } catch (Exception e) {
+            return ResponseEntity.status(500).body(null);
+        }
     }
 }
