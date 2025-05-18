@@ -17,18 +17,18 @@ const ProductAdmin = () => {
         setIsModalOpen(false);
     };
 
-    // Xử lý dữ liệu form khi nhấn "Đồng ý"
     const handleModalSubmit = async (formData) => {
         try {
             console.log('Dữ liệu sản phẩm mới:', formData);
-            // Giả sử bạn gửi dữ liệu qua API để thêm sản phẩm mới
-            // Ví dụ: await fetch(instandURL + '/admin/product/', { method: 'POST', body: JSON.stringify(formData) });
-            // Sau khi thêm thành công, cập nhật refreshTrigger để tải lại bảng
-            setRefreshTrigger((prev) => prev + 1);
+            setRefreshTrigger((prev) => {
+                const newTrigger = prev + 1;
+                console.log('Refresh trigger updated:', newTrigger);
+                return newTrigger;
+            });
         } catch (error) {
             console.error('Lỗi khi thêm sản phẩm:', error);
         }
-        setIsModalOpen(false); // Đóng modal
+        setIsModalOpen(false);
     };
 
     return (
@@ -48,6 +48,8 @@ const ProductAdmin = () => {
                 isOpen={isModalOpen}
                 onClose={handleCloseModal}
                 onSubmit={handleModalSubmit}
+                refreshTrigger={refreshTrigger}
+
             />
         </>
     );

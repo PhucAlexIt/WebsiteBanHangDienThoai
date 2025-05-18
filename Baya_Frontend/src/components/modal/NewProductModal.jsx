@@ -42,8 +42,8 @@ const NewProductModal = ({ isOpen, onClose, onSubmit }) => {
             const img = new Image();
             img.src = url;
 
-            img.onload = () => resolve(true);     // Ảnh tồn tại
-            img.onerror = () => resolve(false);   // URL không hợp lệ hoặc không phải ảnh
+            img.onload = () => resolve(true);
+            img.onerror = () => resolve(false);
         });
     };
 
@@ -98,46 +98,36 @@ const NewProductModal = ({ isOpen, onClose, onSubmit }) => {
 
     const handleSubmit = async () => {
         const validate = await validateFormData();
-        console.log("data gui: ", formData); // Use the formData state
+        console.log("data gui: ", formData);
         console.log(instandURL + '/admin/product/');
         if (validate) {
-            fetch(instandURL + '/admin/product/', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(formData),
-            })
-                .then(response => {
-
-
-                    if (response.status === 201) {
-
-                        successSwall("Đã thêm thành công")
-                        onClose()
-                        return
-
-                    }
-                    if (response.status === 500) {
-                        errorSwall("Đã xảy ra lỗi bên Server.")
-                        return
-                    }
-
-                    return response.json();
-                })
-                .then(data => {
-
-
-
-                })
-                .catch(error => {
-                    errorSwall("Đã xảy ra lỗi.");
+            try {
+                const response = await fetch(instandURL + '/admin/product/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData),
                 });
 
+                if (response.status === 201) {
+                    successSwall("Đã thêm thành công");
+                    onSubmit(formData); // Gọi onSubmit để thông báo cho ProductAdmin
+                    onClose(); // Đóng modal
+                    return;
+                }
+                if (response.status === 500) {
+                    errorSwall("Đã xảy ra lỗi bên Server.");
+                    return;
+                }
 
+                const data = await response.json();
+                console.log("Phản hồi từ server:", data);
+            } catch (error) {
+                errorSwall("Đã xảy ra lỗi.");
+                console.error("Lỗi khi gửi yêu cầu:", error);
+            }
         }
-
-        return
     };
 
     if (!isOpen) return null;
