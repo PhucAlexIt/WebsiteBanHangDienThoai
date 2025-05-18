@@ -42,11 +42,16 @@ public class ProductAdminController {
 //    }
     @DeleteMapping("/delete/{productID}")
     public ResponseEntity deleteProduct(@PathVariable Long id){
-        if(productService.existProductById(id)){
-            productService.deleteByID(id);
-            return ResponseEntity.ok().build();
+        try{
+            if(productService.existProductById(id)){
+                productService.deleteByID(id);
+                return ResponseEntity.ok().build();
+            }
+            return ResponseEntity.notFound().build();
+        }catch (Exception e){
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
-        return ResponseEntity.notFound().build();
+
     }
     @PostMapping("/")
     public ResponseEntity addProduct(@RequestBody Product product) {
