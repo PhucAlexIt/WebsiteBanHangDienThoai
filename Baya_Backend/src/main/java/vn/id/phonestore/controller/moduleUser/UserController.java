@@ -7,19 +7,33 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.*;
 import vn.id.phonestore.dtos.UserDTO;
+import vn.id.phonestore.entity.User;
+import vn.id.phonestore.repository.moduleUser.UserRepository;
 import vn.id.phonestore.service.moduleUser.UserService;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/admin")
 public class UserController {
 
     private final UserService userService;
+
     @Autowired
     public UserController(UserService userService) {
         this.userService = userService;
+
     }
 
-    @DeleteMapping("/{id}")
+    @GetMapping("/users")
+    public List<UserDTO> getAllUsers() {
+        return userService.getAllUsers();
+    }
+
+
+
+
+@DeleteMapping("/{id}")
     public ResponseEntity deleteUser(@PathVariable Integer id) {
         try {
             boolean deleted = userService.deleteUser(id);

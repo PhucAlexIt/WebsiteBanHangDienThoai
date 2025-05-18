@@ -365,6 +365,15 @@ CREATE TABLE IF NOT EXISTS `role` (
   PRIMARY KEY (`roleID`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+INSERT INTO `role` (`roleID`, `name`, `description`)
+VALUES (1, 'Admin', 'Quản trị viên hệ thống');
+
+INSERT INTO `role` (`roleID`, `name`, `description`)
+VALUES (2, 'User', 'Người dùng thông thường');
+
+INSERT INTO `role` (`roleID`, `name`, `description`)
+VALUES (3, 'Staff', 'Nhân viên quản lý');
+
 -- Dumping data for table bayastore.role: ~0 rows (approximately)
 
 -- Dumping structure for table bayastore.users
@@ -383,6 +392,23 @@ CREATE TABLE IF NOT EXISTS `users` (
   KEY `userID_3` (`userID`) USING BTREE,
   CONSTRAINT `FK_user_role` FOREIGN KEY (`roleID`) REFERENCES `role` (`roleID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
+INSERT INTO `users` (`fullName`, `email`, `password`, `phoneNumber`, `roleID`, `createAt`) VALUES
+('Nguyen Van A', 'a.nguyen@gmail.com', 'password1', 912345678, 1, NOW()),
+('Tran Thi B', 'b.tran@gmail.com', 'password2', 912345679, 2, NOW()),
+('Le Van C', 'c.le@gmail.com', 'password3', 912345680, 1, NOW()),
+('Ket Lieu Di', 'd.pham@gmail.com', 'password4', 912345681, 3, NOW()),
+('Bay Cho Siu', 'e.hoang@gmail.com', 'password5', 912345682, 2, NOW()),
+('Ruoi Bau', 'f.bui@gmail.com', 'password6', 912345683, 1, NOW()),
+('Nguoi Ganh Team', 'g.do@gmail.com', 'password7', 912345684, 1, NOW()),
+ ('Dang Van Tran', 'h.dang@gmail.com', 'password8', 912345685, 2, NOW()),
+('Ngo Thua Au', 'i.ngo@gmail.com', 'password9', 912345686, 3, NOW()),
+('Vu Thi Tuyet Linh', 'j.vu@gmail.com', 'password10', 912345687, 1, NOW()),
+('Nguyen Cao Long Thanh', 'k.phan@gmail.com', 'password11', 912345688, 2, NOW()),
+('Nguyen Minh Nhut', 'l.cao@gmail.com', 'password12', 912345689, 1, NOW()),
+('To Hoai Vu', 'm.mai@gmail.com', 'password13', 912345690, 3, NOW()),
+('Tran Chi Trung', 'tt@gmail.com', 'password14', 912345691, 1, NOW()),
+('Quach Thi Man', 'canMan@gmail.com', 'password15', 912345692, 2, NOW());
+
 
 -- Dumping data for table bayastore.users: ~0 rows (approximately)
 
