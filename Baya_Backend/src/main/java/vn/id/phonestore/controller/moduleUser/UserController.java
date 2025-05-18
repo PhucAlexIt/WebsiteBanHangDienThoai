@@ -31,15 +31,18 @@ public class UserController {
     }
 
 
-
-
-@DeleteMapping("/{id}")
+// 17.1.6: Hệ thống nhận yêu cầu API RESTFUL từ frontend.
+// 17.1.7: Hệ thống gọi deleteUser(@PathVariable Integer id) trong lớp UserController để truy xuất lấy id.
+    @DeleteMapping("/{id}")
     public ResponseEntity deleteUser(@PathVariable Integer id) {
         try {
+            // 17.1.8: Hệ thống gọi deleteUser(id) của lớp UserService để kiểm tra id người dùng có tồn tại trong hệ thống.
             boolean deleted = userService.deleteUser(id);
             if (deleted) {
+                // 17.1.12: Hệ thống hiển thị thông báo cho người quản trị "Thành công, đã xoá người dùng thành công".
                 return ResponseEntity.ok("Đã xoá người dùng thành công");
             } else {
+                // 17.2.12: Hệ thống hiển thị thông báo lỗi cho người quản trị "Thông báo, Không tìm thấy người dùng để xoá".
                 return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Không tìm thấy người dùng");
             }
         } catch (Exception e) {

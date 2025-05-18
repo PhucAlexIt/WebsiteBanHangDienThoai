@@ -24,6 +24,7 @@ const TableUser = () => {
             setError(null);
 
             try {
+                // 17.1.6: Hệ thống nhận yêu cầu và gửi API RESTFUL tới lớp UserController.
                 const res = await fetch(`${instandURL}/admin/users`);
                 if (!res.ok) {
                     throw new Error(`Lỗi trả về: ${res.status} ${res.statusText}`);
