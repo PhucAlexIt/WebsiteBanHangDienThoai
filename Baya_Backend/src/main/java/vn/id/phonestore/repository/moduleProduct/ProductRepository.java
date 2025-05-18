@@ -5,6 +5,7 @@ import org.springframework.stereotype.Repository;
 import vn.id.phonestore.dtos.ProductDTO;
 import vn.id.phonestore.entity.Product;
 
+
 import java.util.List;
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Long> {
