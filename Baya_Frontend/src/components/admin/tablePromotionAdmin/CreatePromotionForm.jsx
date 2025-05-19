@@ -31,7 +31,7 @@ const PromotionForm = ({ promotionId }) => {
             endDate: data.endDate ? data.endDate.split("T")[0] : "",
             status: data.status,
           });
-        } catch (err) {
+        } catch {
           alert("Lỗi tải dữ liệu");
           navigate("/admin/promotion");
         }
@@ -99,7 +99,7 @@ const PromotionForm = ({ promotionId }) => {
 
       alert(promotionId ? "Cập nhật thành công!" : "Thêm mới thành công!");
       navigate("/admin/promotion");
-    } catch (error) {
+    } catch {
       setError("Lưu thất bại, vui lòng thử lại");
     }
   };
