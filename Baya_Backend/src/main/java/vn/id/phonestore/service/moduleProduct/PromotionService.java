@@ -19,12 +19,6 @@ public class PromotionService {
     }
 
     public Promotion createPromotion(PromotionDTO dto) {
-        Promotion existingPromotion = promotionRepository.findByName(dto.getName());
-
-        if (existingPromotion != null) {
-            throw new IllegalArgumentException("Tên chương trình khuyến mãi đã tồn tại.");
-        }
-
         Promotion promotion = new Promotion();
         promotion.setName(dto.getName());
         promotion.setDescription(dto.getDescription());

@@ -1,12 +1,12 @@
 import { useParams } from "react-router-dom";
-import CreatePromotionForm from "../components/admin/tablePromotionAdmin/CreatePromotionForm";
+import EditPromotion from "../components/admin/tablePromotionAdmin/EditPromotion";
 
 const EditPromotionAdmin = () => {
   const { id } = useParams();
 
   return (
     <>
-      <CreatePromotionForm promotionId={id} />
+      <EditPromotion promotionId={id} />
     </>
   );
 };
