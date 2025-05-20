@@ -16,7 +16,7 @@ const BlockTop10Discounts = () => {
                 setTopDiscounts(data);
             })
             .catch(error => {
-                alert("da xay ra loi loading")
+                console.log("da xay ra loi loading")
 
             });
     }, []);

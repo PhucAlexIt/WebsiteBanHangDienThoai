@@ -48,13 +48,12 @@ const SidebarAdmin = () => {
 
                 </li>
 
-
+                {/* 18.1.1.2 Admin chọn mục “Quản lý sản phẩm” từ thanh Sidebar. Thanh sidebar nằm phía bên trái màn hình. */}
                 <li className="nav-item">
                     <Link className="nav-link collapsed" to="product" aria-expanded="true" aria-controls="collapseTwo">
                         <i className="fas fa-fw fa-cog"></i>
                         <span>Quản lí sản phẩm</span>
                     </Link>
-
                 </li>
 
                 <li className="nav-item">
