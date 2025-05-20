@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import instandURL from "../../../services/ApiConFig";
 import "../../../assets/css/admin/form-promotion.css";
 
-const PromotionForm = ({ promotionId }) => {
+const EditPromotion = ({ promotionId }) => {
   const [promotion, setPromotion] = useState({
     name: "",
     description: "",
@@ -16,28 +16,26 @@ const PromotionForm = ({ promotionId }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (promotionId) {
-      // Nếu có promotionId thì fetch dữ liệu để sửa
-      const fetchPromotion = async () => {
-        try {
-          const res = await fetch(`${instandURL}/admin/getPromotionById/${promotionId}`);
-          if (!res.ok) throw new Error("Không tìm thấy khuyến mãi");
-          const data = await res.json();
-          setPromotion({
-            name: data.name || "",
-            description: data.description || "",
-            discountValue: data.discountValue || "",
-            startDate: data.startDate ? data.startDate.split("T")[0] : "",
-            endDate: data.endDate ? data.endDate.split("T")[0] : "",
-            status: data.status,
-          });
-        } catch {
-          alert("Lỗi tải dữ liệu");
-          navigate("/admin/promotion");
-        }
-      };
-      fetchPromotion();
-    }
+    const fetchPromotion = async () => {
+      try {
+        const res = await fetch(`${instandURL}/admin/getPromotionById/${promotionId}`);
+        if (!res.ok) throw new Error("Không tìm thấy khuyến mãi");
+        const data = await res.json();
+        setPromotion({
+          name: data.name || "",
+          description: data.description || "",
+          discountValue: data.discountValue || "",
+          startDate: data.startDate?.split("T")[0] || "",
+          endDate: data.endDate?.split("T")[0] || "",
+          status: data.status,
+        });
+      } catch (err) {
+        alert("Lỗi tải dữ liệu");
+        navigate("/admin/promotion");
+      }
+    };
+
+    if (promotionId) fetchPromotion();
   }, [promotionId, navigate]);
 
   const handleChange = (e) => {
@@ -67,54 +65,31 @@ const PromotionForm = ({ promotionId }) => {
         discountValue: parseFloat(promotion.discountValue),
       };
 
-      let response;
-      if (promotionId) {
-        // update
-        response = await fetch(`${instandURL}/admin/updatePromotion/${promotionId}`, {
-          method: "PUT",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(formattedData),
-        });
-      } else {
-        // create
-        // 22.1.6. Gửi POST request tới API ${instandURL}/admin/addPromotion bằng fetch() gửi dữ liệu.
-        response = await fetch(`${instandURL}/admin/addPromotion`, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(formattedData),
-        });
-      }
+      const response = await fetch(`${instandURL}/admin/updatePromotion/${promotionId}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formattedData),
+      });
 
       if (!response.ok) {
-        if (response.status === 409) {
-          // Lỗi trùng tên chương trình khuyến mãi
-          const errMsg = await response.text();
-          setError(errMsg || "Tên chương trình khuyến mãi đã tồn tại.");
-        } else {
-          // Lỗi khác
-          setError("Lỗi khi lưu dữ liệu, vui lòng thử lại.");
-        }
+        setError("Lỗi khi cập nhật, vui lòng thử lại.");
         return;
       }
 
-      alert(promotionId ? "Cập nhật thành công!" : "Thêm mới thành công!");
+      alert("Cập nhật thành công!");
       navigate("/admin/promotion");
-    } catch {
-      setError("Lưu thất bại, vui lòng thử lại");
+    } catch (error) {
+      setError("Cập nhật thất bại, vui lòng thử lại");
     }
   };
 
-  
-  // Nút Hủy
   const handleCancel = () => {
     navigate("/admin/promotion");
   };
 
-
-  // 22.1.4. Nhập đầy đủ thông tin trong form
   return (
     <div className="promotion-form-container">
-      <h2>{promotionId ? "Chỉnh sửa Khuyến Mãi" : "Thêm Khuyến Mãi"}</h2>
+      <h2>Chỉnh sửa Khuyến Mãi</h2>
       <form className="promotion-form" onSubmit={handleSubmit}>
         <div className="form-grid">
           <div className="form-col">
@@ -155,7 +130,7 @@ const PromotionForm = ({ promotionId }) => {
             required
           />
         </div>
- 
+
         <div className="form-grid grid-3">
           <div className="form-col">
             <label htmlFor="startDate">Ngày bắt đầu:</label>
@@ -196,22 +171,12 @@ const PromotionForm = ({ promotionId }) => {
         {error && <div className="error-message">{error}</div>}
 
         <div>
-          <button type="submit" className="submit-btn">
-            {promotionId ? 
-            "Lưu thay đổi" : 
-            // 22.1.5. Click nút "Thêm"
-            "Thêm"}
-          </button>
-          <button
-            type="button"
-            className="cancel-btn"
-            onClick={handleCancel}>
-            Hủy
-          </button>
+          <button type="submit" className="submit-btn">Lưu thay đổi</button>
+          <button type="button" className="cancel-btn" onClick={handleCancel}>Hủy</button>
         </div>
       </form>
     </div>
   );
 };
 
-export default PromotionForm;
+export default EditPromotion;

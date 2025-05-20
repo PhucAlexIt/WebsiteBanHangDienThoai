@@ -1,10 +1,10 @@
-import CreatePromotionForm from "../components/admin/tablePromotionAdmin/CreatePromotionForm"
+import AddPromotion from "../components/admin/tablePromotionAdmin/AddPromotion"
 
 const AddPromotionAdmin = () => {
     return (
         <>
         
-            <CreatePromotionForm />
+            <AddPromotion />
 
         </>
     )

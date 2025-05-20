@@ -31,12 +31,8 @@ public class PromotionController {
     // 22.1.7. PromotionController gọi PromotionService.createPromotion(PromotionDTO dto)
     @PostMapping("/addPromotion")
     public ResponseEntity<?> createPromotion(@RequestBody PromotionDTO dto) {
-        try {
-            Promotion newPromotion = promotionService.createPromotion(dto);
-            return ResponseEntity.ok(newPromotion);
-        } catch (IllegalArgumentException e) {
-            return ResponseEntity.status(HttpStatus.CONFLICT).body(e.getMessage());  // 409 Conflict
-        }
+        Promotion newPromotion = promotionService.createPromotion(dto);
+        return ResponseEntity.ok(newPromotion);
     }
 
     @PutMapping("/updatePromotion/{id}")

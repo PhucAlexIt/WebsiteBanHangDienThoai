@@ -7,7 +7,47 @@ const TablePromotion = () => {
   const [promotions, setPromotions] = useState([]);
   const tableRef = useRef(null);
   const dataTable = useRef(null);
+
+  // 22.1.1. Khởi tạo biến (navigate) dùng để chuyển trang.
   const navigate = useNavigate();
+
+  // 22.1.2. Khởi tạo hàm handleAddPromotion() và gọi navigate chuyển đến trang Thêm khuyến mãi (AddPromotion)
+  const handleAddPromotion = () => {
+    navigate("/admin/add-promotion");
+  };
+
+  const editPromotion = (id) => {
+    navigate(`/admin/edit-promotion/${id}`);
+  };
+
+  const deletePromotion = async (id) => {
+    const result = await window.Swal.fire({
+      title: "Bạn có chắc chắn muốn xóa khuyến mãi này không?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonText: "Có",
+      cancelButtonText: "Hủy",
+    });
+
+    if (!result.isConfirmed) return; 
+
+    try {
+      const response = await fetch(`${instandURL}/admin/deletePromotion/${id}`, {
+        method: "DELETE",
+      });
+
+      if (response.ok) {
+        // Cập nhật lại danh sách sau khi xóa
+        setPromotions((prev) => prev.filter((item) => item.id !== id));
+      } else if (response.status === 404) {
+        console.log("Không tìm thấy khuyến mãi để xóa.");
+      } else {
+        console.log("Đã xảy ra lỗi khi xóa khuyến mãi.");
+      }
+    } catch (error) {
+      console.error("Lỗi khi xóa khuyến mãi:", error);
+    }
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -107,58 +147,18 @@ const TablePromotion = () => {
 }, [promotions]);
 
 
-  const editPromotion = (id) => {
-    navigate(`/admin/edit-promotion/${id}`);
-  };
-
-  const deletePromotion = async (id) => {
-    const result = await window.Swal.fire({
-      title: "Bạn có chắc chắn muốn xóa khuyến mãi này không?",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonText: "Có",
-      cancelButtonText: "Hủy",
-    });
-
-    if (!result.isConfirmed) return; 
-
-    try {
-      const response = await fetch(`${instandURL}/admin/deletePromotion/${id}`, {
-        method: "DELETE",
-      });
-
-      if (response.ok) {
-        // Cập nhật lại danh sách sau khi xóa
-        setPromotions((prev) => prev.filter((item) => item.id !== id));
-      } else if (response.status === 404) {
-        console.log("Không tìm thấy khuyến mãi để xóa.");
-      } else {
-        console.log("Đã xảy ra lỗi khi xóa khuyến mãi.");
-      }
-    } catch (error) {
-      console.error("Lỗi khi xóa khuyến mãi:", error);
-    }
-  };
-
-
-  // 22.1.2. Khởi tạo hàm handleAddPromotion() và gọi hàm navigate("/admin/add-promotion") 
-  // chuyển đến trang Thêm khuyến mãi
-  const handleAddPromotion = () => {
-    navigate("/admin/add-promotion");
-  };
-
   return (
     <>
       <div className="container">
         <div className="d-flex justify-content-between align-items-start">
           <h3>Quản Lý Khuyến Mãi</h3>
 
-          {/* 22.1.1. Admin click vào nút "Tạo mới khuyến mãi" */}
+          {/* 22.1.4. Admin click vào nút "Tạo mới khuyến mãi" */}
           <button 
-          // 22.1.3. Cài đặt sự kiện onClick={handleAddPromotion()} cho nút “Tạo mới khuyến mãi”.
+          // 22.1.3. Gán sự kiện onClick={handleAddPromotion()} cho nút “Tạo mới khuyến mãi”.
           onClick={handleAddPromotion} 
           className="btn mt-3" id="btn-add">
-            Tạo mới khuyến mãi
+            Tạo mới
           </button>
         </div>
       </div>
