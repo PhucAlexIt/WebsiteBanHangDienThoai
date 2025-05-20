@@ -48,15 +48,17 @@ const router = createBrowserRouter([
   },
 
   {
+    // 18.1.1.0 Admin truy cập trang Dashboard
     path: "/admin",
     element: <Admin />,
     children: [
       {
+        // 18.1.1.1 Hiển thị giao diện trang Dashboard.
         index: true,
         element: <DashboardAdmin />
-
       },
       {
+
         path: "product",
         element: <ProductAdmin />,
       },

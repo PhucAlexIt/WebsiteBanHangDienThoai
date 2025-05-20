@@ -17,10 +17,10 @@ public class AppConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**") // Áp dụng cho tất cả các endpoint
-                .allowedOrigins("http://localhost:5173") // Origin được phép
+                .allowedOrigins("*") // Origin được phép
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS") // Các phương thức HTTP được phép
                 .allowedHeaders("*") // Cho phép tất cả header
-                .allowCredentials(true); // Cho phép gửi cookie hoặc credentials
+                .allowCredentials(false); // Cho phép gửi cookie hoặc credentials
     }
 
 }

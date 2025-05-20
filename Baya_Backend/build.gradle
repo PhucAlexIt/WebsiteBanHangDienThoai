@@ -34,9 +34,6 @@ dependencies {
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
-tasks.named('test') {
-	useJUnitPlatform()
-}
 
 tasks.withType(JavaCompile) {
 	options.encoding = 'UTF-8'
@@ -88,7 +85,7 @@ task deploy {
 						'--network noithat-net ' +
 						'-p 80:8080 ' +
 						'openjdk:21-jdk-slim ' +
-						'java -jar /app/bayastore.jar'
+						'java -jar /root/bayastore.jar'
 			}
 		}
 	}

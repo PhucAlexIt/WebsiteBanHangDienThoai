@@ -16,7 +16,7 @@ const Top10Sell = () => {
                 setTopSell(data);
             })
             .catch(error => {
-                alert("da xay ra loi loading")
+                console.log("da xay ra loi loading")
 
             });
     }, []);

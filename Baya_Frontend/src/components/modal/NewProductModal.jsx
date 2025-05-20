@@ -1,7 +1,7 @@
 
 
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ListCategory from '../admin/listCategoryAdmin/ListCategory';
 import instandURL from "../../services/ApiConFig"
@@ -9,6 +9,7 @@ import { errorSwall, successSwall } from "../../services/Swall"
 import TableProduct from "../admin/tableProductAdmin/TableProduct"
 
 const NewProductModal = ({ isOpen, onClose, onSubmit }) => {
+    // 18.1.1.24 State formData lưu trữ tất cả thông tin Admin đã nhập.
     const [formData, setFormData] = useState({
         name: '',
         img: '',
@@ -21,15 +22,33 @@ const NewProductModal = ({ isOpen, onClose, onSubmit }) => {
         description: '',
         quanlityStock: '',
     });
-
+    // 18.1.1.12 useEffect  reset state formData về giá trị mặc định
+    useEffect(() => {
+        if (isOpen) {
+            setFormData({
+                name: '',
+                img: '',
+                price: '',
+                category: {
+                    id: '',
+                    name: ''
+                },
+                discountDefault: '',
+                description: '',
+                quanlityStock: '',
+            });
+        }
+    }, [isOpen]);
+    // 18.1.1.22 handleFormChange() cập nhật state formData mỗi khi giá trị các trường thay đổi khi admin nhập vào.
     const handleFormChange = (e) => {
+
         const { name, value } = e.target;
         setFormData((prev) => ({
             ...prev,
             [name]: value,
         }));
     };
-
+    // 18.1.1.23 Hàm handleCategoryChange() cập nhật category trong formData bằng cách lấy giá trị từ e.target.value
     const handleCategoryChange = (e) => {
         const { id, name } = e.target.value;
         setFormData((prev) => ({
@@ -37,6 +56,7 @@ const NewProductModal = ({ isOpen, onClose, onSubmit }) => {
             category: { id, name },
         }));
     };
+    // 18.1.4.0 Hàm validateImageUrl() kiểm tra url mà Admin nhập vào.
     const validateImageUrl = (url) => {
         return new Promise((resolve) => {
             const img = new Image();
@@ -52,43 +72,54 @@ const NewProductModal = ({ isOpen, onClose, onSubmit }) => {
 
     const validateFormData = async () => {
         const { name, img, price, category, discountDefault, description, quanlityStock } = formData;
-
+        // 18.1.2.0 Kiểm tra thấy trường tên sản phẩm không hợp lệ.
         if (!name.trim()) {
+            // 18.1.2.1 Hiển thị thông báo “Tên sản phẩm không được để trống” bằng hàm errorSwall().
             errorSwall("Tên sản phẩm không được để trống.");
             return false;
         }
+        // 18.1.3.0 Kiểm tra thấy trường hình ảnh sản phẩm bị bỏ trống.
         if (!img.trim()) {
+            // 18.1.3.1 Hiển thị thông báo “Ảnh sản phẩm không được bỏ trống.”  bằng hàm errorSwall().
             errorSwall("Ảnh sản phẩm không được để trống.");
             return false;
         }
+        // 18.1.4.0 Hàm validateImageUrl() kiểm tra url mà Admin nhập vào.
+
         if (!(await validateImageUrl(img))) {
+            // 18.1.4.1 Hiển thị thông báo “URL không hợp lệ và không phải là ảnh.” bằng hàm errorSwall().
             errorSwall("URL không hợp lệ hoặc không phải là ảnh.");
             return false;
         }
 
-
+        // 18.1.5.0 Kiểm tra thấy giá sản phẩm không hợp lệ
         if (!price || isNaN(price) || Number(price) <= 0) {
+            // 18.1.5.1 Hiển thị thông báo “Giá sản phẩm không hợp lệ.”  bằng hàm errorSwall().
             errorSwall("Giá sản phẩm không hợp lệ");
             return false;
         }
-
+        // 18.1.6.0 Kiểm tra thấy trường danh mục sản phẩm bị bỏ trống.
         if (!category.id || !category.name) {
+            // 18.1.6.1 Hiển thị thông báo “Danh mục sản phẩm không được để trống.” bằng hàm errorSwall().
             errorSwall("Danh mục sản phẩm không được để trống.");
             return false;
         }
-
+        // 18.1.9.0 Kiểm tra thấy giảm giá không hợp lệ.
         if (discountDefault === '' || isNaN(discountDefault) || Number(discountDefault) < 0 || Number(discountDefault) > 100) {
-            errorSwall("Trường giảm giá chưa hợp lệ");
+            //    18.1.9.1 Hiển thị thông báo “Giảm giá không hợp lệ.” bằng hàm errorSwall().
+            errorSwall("Trường thông tin giảm giá chưa hợp lệ");
             return false;
         }
-
+        // 18.1.8.0 Kiểm tra thấy mô tả không hợp lệ.
         if (!description.trim()) {
+            // 18.1.8.1 Hiển thị thông báo “Mô tả sản phẩm không được để trống.” bằng hàm errorSwall().
             errorSwall("Mô tả sản phẩm không được để trống.");
             return false;
         }
-
+        // 18.1.7.0 Kiểm tra thấy số lượng hàng không hợp lệ.
         if (!quanlityStock || isNaN(quanlityStock) || Number(quanlityStock) < 0) {
-            errorSwall("Số lượng tồn kho chưa hợp lệ.");
+            // 18.1.7.1 Hiển thị thông báo “Số lượng tồn kho không hợp lệ.” bằng hàm errorSwall().
+            errorSwall("Số lượng hàng đang có chưa hợp lệ.");
             return false;
         }
 
@@ -96,12 +127,14 @@ const NewProductModal = ({ isOpen, onClose, onSubmit }) => {
         return true;
     };
 
+
     const handleSubmit = async () => {
+        // 18.1.1.26 Hàm handleSubmit()  gọi validateFormData() để kiểm tra tính hợp lệ của dữ liệu
         const validate = await validateFormData();
-        console.log("data gui: ", formData);
-        console.log(instandURL + '/admin/product/');
+
         if (validate) {
             try {
+                // 18.1.1.27 handleSubmit() gửi yêu cầu POST tới endpoint /admin/product/ với body là formData.
                 const response = await fetch(instandURL + '/admin/product/', {
                     method: 'POST',
                     headers: {
@@ -111,21 +144,24 @@ const NewProductModal = ({ isOpen, onClose, onSubmit }) => {
                 });
 
                 if (response.status === 201) {
+                    //   18.1.1.33 gọi hàm onSubmit (truyền từ ProductAdmin) để thông báo rằng sản phẩm đã được thêm.
+                    onSubmit(formData);
+                    //   18.1.1.36 hiển thị thông báo “Đã thêm thành công” bằng hàm successSwall().
                     successSwall("Đã thêm thành công");
-                    onSubmit(formData); // Gọi onSubmit để thông báo cho ProductAdmin
-                    onClose(); // Đóng modal
                     return;
                 }
                 if (response.status === 500) {
-                    errorSwall("Đã xảy ra lỗi bên Server.");
+                    // 18.1.10.1. Hiển thị thông báo “Đã xảy ra lỗi Server. Vui lòng thử lại” bằng hàm errorSwall().
+                    errorSwall("Đã xảy ra lỗi Server. Vui lòng thử lại.");
                     return;
                 }
 
                 const data = await response.json();
-                console.log("Phản hồi từ server:", data);
+
             } catch (error) {
-                errorSwall("Đã xảy ra lỗi.");
-                console.error("Lỗi khi gửi yêu cầu:", error);
+                // 18.1.11.0. Hiển thị thông báo “Đã xảy ra lỗi khi kết nối với Server” bằng hàm errorSwall().
+                errorSwall("Đã xảy ra lỗi khi kết nối đến server.");
+
             }
         }
     };
@@ -133,6 +169,7 @@ const NewProductModal = ({ isOpen, onClose, onSubmit }) => {
     if (!isOpen) return null;
 
     return (
+
         <div
             className="modal fade show"
             tabIndex="-1"
@@ -141,6 +178,7 @@ const NewProductModal = ({ isOpen, onClose, onSubmit }) => {
             role="dialog"
             style={{ display: 'block', backgroundColor: 'rgba(0,0,0,0.5)' }}
         >
+            {/* 18.1.1.21 Admin nhập thông tin vào các trường trong modal. */}
             <div className="modal-dialog modal-lg">
                 <div className="modal-content">
                     <div className="modal-header">
@@ -253,6 +291,7 @@ const NewProductModal = ({ isOpen, onClose, onSubmit }) => {
                         <button type="button" className="btn btn-secondary" onClick={onClose}>
                             Hủy
                         </button>
+                        {/* 18.1.1.25 Admin nhấn nút “Đồng ý” trong modal để gửi thông tin sản phẩm. */}
                         <button
                             type="button"
                             className="btn btn-danger"
@@ -263,7 +302,7 @@ const NewProductModal = ({ isOpen, onClose, onSubmit }) => {
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
 

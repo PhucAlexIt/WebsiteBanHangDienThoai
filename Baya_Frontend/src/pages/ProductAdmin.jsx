@@ -3,66 +3,37 @@ import TableProduct from "../components/admin/tableProductAdmin/TableProduct";
 import NewProductModal from "../components/modal/NewProductModal";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { successSwall, errorSwall } from '../services/Swall'
+import instandURL from '../services/ApiConFig';
 const ProductAdmin = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [refreshTrigger, setRefreshTrigger] = useState(0); // State to trigger table refresh
+    const [refreshTrigger, setRefreshTrigger] = useState(0);
 
-    // Mở modal
+    // 18.1.1.11 Hàm handleOpenModal đặt state isModalOpen thành true, hiển thị component NewProductModal dưới dạng popup.
     const handleOpenModal = () => {
         setIsModalOpen(true);
     };
 
-    // Đóng modal
+
     const handleCloseModal = () => {
         setIsModalOpen(false);
     };
+    // 18.1.1.34 handleModalSubmit trong ProductAdmin để tăng giá trị refreshTrigger.
+    const handleModalSubmit = async () => {
 
-    const handleModalSubmit = async (formData) => {
-        try {
-            console.log('Dữ liệu sản phẩm mới:', formData);
-            setRefreshTrigger((prev) => {
-                const newTrigger = prev + 1;
-                console.log('Refresh trigger updated:', newTrigger);
-                return newTrigger;
-            });
-        } catch (error) {
-            console.error('Lỗi khi thêm sản phẩm:', error);
-        }
+        setRefreshTrigger((prev) => {
+            const newTrigger = prev + 1;
+
+            return newTrigger;
+        });
+        //   18.1.1.35 đóng modal bằng cách gọi handlerCloseModal().
         setIsModalOpen(false);
     };
-
-
-
-    function remove_btn(id) {
-        var feature = {
-            featureID: $("#featureID_remove").val(),
-        }
-        $.ajax({
-            url: "/removeResource",
-            type: "POST",
-            contentType: "application/json",
-            data: JSON.stringify(feature),
-            dataType: "json",
-            success: function (response) {
-                if (response.success) {
-                    $("#openModal").modal("hide");
-                    successSwall("Đã xóa thành công");
-
-
-                } else {
-                    errorSwall("Đã xảy ra lỗi");
-                }
-            },
-
-        });
-
-
-
-    }
 
 
     return (
         <>
+            {/* 18.1.1.10 Admin nhấn nút “Thêm mới” trong giao diện ProductAdmin để mở form thêm sản phẩm. handleOpenModal */}
+
             <button
                 className="btn btn-success btn-icon-split"
                 style={{ marginLeft: '20px', marginBottom: '20px' }}

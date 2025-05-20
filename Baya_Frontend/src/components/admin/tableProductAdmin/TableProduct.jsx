@@ -3,19 +3,20 @@ import instandURL from "../../../services/ApiConFig"
 
 
 const TableProduct = ({ refreshTrigger }) => {
+    //  18.1.1.37 kích hoạt lại useEffect() để cập nhập lại bảng Product.
     useEffect(() => {
         let table
-
+        //    18.1.1.3 sử dụng fetch để gửi yêu cầu GET tới endpoint “/admin/product/".
         fetch(instandURL + `/admin/product/`)
-            .then(response => response.json())
-            .then(data => {
-                console.log("Data from API:", data);
 
+            .then(response => response.json())
+
+            .then(data => {
 
                 if ($.fn.DataTable.isDataTable("#myTable")) {
                     $("#myTable").DataTable().clear().destroy();
                 }
-
+                // 18.1.1.9 khởi tạo jQuery DataTable $("#myTable").DataTable() và hiển thị danh sách sản phẩm trong bảng với các cột: STT, Tên sản phẩm, Danh mục, Giảm giá, Giá bán, Đã bán, Còn tồn kho, Sửa, Xóa. 
                 table = $("#myTable").DataTable({
                     data: data,
                     columns: [
