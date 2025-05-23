@@ -21,10 +21,10 @@ public class CategoryController {
 
     @GetMapping("/")
     public ResponseEntity findAll() {
-//        18.1.1.14 CategoryController gọi phương thức getAll() trong CategoryService để lấy danh sách danh mục.
-//        18.1.1.17 Trả về tất cả các danh mục đang có ở CSDL.
+//        18.1.1.15 CategoryController gọi phương thức getAll() trong CategoryService để lấy danh sách danh mục.
+//        18.1.1.18 Trả về tất cả các danh mục đang có ở CSDL.
         List<Category> list = categoryService.getAll();
-//        18.1.1.18 trả về danh sách danh mục dưới dạng JSON với mã trạng thái HTTP 200 OK.
+//        18.1.1.19 trả về danh sách danh mục dưới dạng JSON với mã trạng thái HTTP 200 OK.
         return ResponseEntity.ok(list);
 
     }

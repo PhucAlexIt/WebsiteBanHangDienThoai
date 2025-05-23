@@ -3,20 +3,20 @@ import instandURL from "../../../services/ApiConFig"
 
 
 const TableProduct = ({ refreshTrigger }) => {
-    //  18.1.1.37 kích hoạt lại useEffect() để cập nhập lại bảng Product.
+    //  18.1.1.38 kích hoạt lại useEffect() để cập nhập lại bảng Product.
     useEffect(() => {
         let table
-        //    18.1.1.3 sử dụng fetch để gửi yêu cầu GET tới endpoint “/admin/product/".
+        // 18.1.1.3  gửi yêu cầu GET tới endpoint “api.bayastore.id.vn /admin/product/".
         fetch(instandURL + `/admin/product/`)
 
             .then(response => response.json())
 
             .then(data => {
 
-                if ($.fn.DataTable.isDataTable("#myTable")) {
-                    $("#myTable").DataTable().clear().destroy();
-                }
-                // 18.1.1.9 khởi tạo jQuery DataTable $("#myTable").DataTable() và hiển thị danh sách sản phẩm trong bảng với các cột: STT, Tên sản phẩm, Danh mục, Giảm giá, Giá bán, Đã bán, Còn tồn kho, Sửa, Xóa. 
+                // 18.1.1.9  xóa dữ liệu và hủy cấu hình của DataTable.
+                $("#myTable").DataTable().clear().destroy();
+
+                // 18.1.1.10 khởi tạo jQuery DataTable $("#myTable").DataTable() và hiển thị danh sách sản phẩm trong bảng với các cột: STT, Tên sản phẩm, Danh mục, Giảm giá, Giá bán, Đã bán, Còn tồn kho, Sửa, Xóa. 
                 table = $("#myTable").DataTable({
                     data: data,
                     columns: [
@@ -85,12 +85,7 @@ const TableProduct = ({ refreshTrigger }) => {
                 console.error("Error fetching data:", error);
             });
 
-        return () => {
 
-            if ($.fn.DataTable.isDataTable("#myTable")) {
-                $("#myTable").DataTable().clear().destroy();
-            }
-        };
     }, [refreshTrigger]);
 
     return (

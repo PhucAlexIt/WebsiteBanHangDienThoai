@@ -12,7 +12,7 @@ import java.util.List;
 public class CategoryService {
     @Autowired
     private CategoryRepository categoryRepository;
-//    18.1.1.15 CategoryService gọi CategoryRepository.findAll() để lấy tất cả danh mục từ CSDL.
+//    18.1.1.17 gọi findAll() của CategoryRepository để lấy tất cả danh mục từ CSDL.
     public List<Category> getAll (){
         return categoryRepository.findAll();
     }
