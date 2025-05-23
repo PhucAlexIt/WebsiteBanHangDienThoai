@@ -8,7 +8,7 @@ const ProductAdmin = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [refreshTrigger, setRefreshTrigger] = useState(0);
 
-    // 18.1.1.11 Hàm handleOpenModal đặt state isModalOpen thành true, hiển thị component NewProductModal dưới dạng popup.
+    // 18.1.1.12 Hàm handleOpenModal() đặt isModalOpen thành true, hiển thị component NewProductModal dưới dạng popup.
     const handleOpenModal = () => {
         setIsModalOpen(true);
     };
@@ -17,22 +17,22 @@ const ProductAdmin = () => {
     const handleCloseModal = () => {
         setIsModalOpen(false);
     };
-    // 18.1.1.34 handleModalSubmit trong ProductAdmin để tăng giá trị refreshTrigger.
-    const handleModalSubmit = async () => {
 
+    const handleModalSubmit = async () => {
+        // 18.1.1.35 handleModalSubmit() trong ProductAdmin để tăng giá trị refreshTrigger.
         setRefreshTrigger((prev) => {
             const newTrigger = prev + 1;
 
             return newTrigger;
         });
-        //   18.1.1.35 đóng modal bằng cách gọi handlerCloseModal().
+        //   18.1.1.36 đóng modal bằng cách gọi handlerCloseModal(false).
         setIsModalOpen(false);
     };
 
 
     return (
         <>
-            {/* 18.1.1.10 Admin nhấn nút “Thêm mới” trong giao diện ProductAdmin để mở form thêm sản phẩm. handleOpenModal */}
+            {/* 18.1.1.11 Admin nhấn nút “Thêm mới”. */}
 
             <button
                 className="btn btn-success btn-icon-split"

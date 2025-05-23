@@ -49,11 +49,10 @@ public class ProductAdminController {
     public ResponseEntity addProduct(@RequestBody Product product) {
 
         try{
-            //    18.1.1.28 gọi phương thức saveProduct() trong ProductService, truyền vào Product đã nhận.
-            //      18.1.1.31 Trả về Product vừa được thêm từ CSDL.
+            //    18.1.1.28 gọi phương thức saveProduct(product) trong ProductService.
+            //      18.1.1.32 Trả về Product vừa được thêm từ CSDL.
             Product prod=  productService.saveProduct(product);
-//            18.1.1.32  trả về đối tượng sản phẩm đã lưu dưới dạng JSON với mã trạng thái HTTP 201 Created.
-
+//            18.1.1.33  trả về đối tượng sản phẩm đã lưu dưới dạng JSON với mã trạng thái HTTP 201 Created.
                 return ResponseEntity.status(HttpStatus.CREATED).body(prod);
 
         }catch (Exception e){

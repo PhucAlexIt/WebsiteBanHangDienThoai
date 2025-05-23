@@ -38,7 +38,7 @@ public class ProductService {
     }
 
     public Product saveProduct(Product product){
-//        18.1.1.29  gọi ProductRepository.save() để lưu bản ghi sản phẩm mới vào CSDL.
+//        18.1.1.30  gọi save(product) để lưu sản phẩm mới vào CSDL.
         return productRepository.save(product);
     }
 

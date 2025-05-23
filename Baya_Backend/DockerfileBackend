@@ -1,0 +1,14 @@
+# Sử dụng base image chứa Java JDK
+FROM eclipse-temurin:17-jdk-jammy as builder
+
+# Tạo thư mục để chứa file ứng dụng
+WORKDIR /app
+
+# Sao chép file jar từ local vào container
+COPY target/myapp-0.0.1-SNAPSHOT.jar app.jar
+
+# Cấu hình cổng mà app Spring Boot sử dụng (mặc định 8080)
+EXPOSE 8080
+
+# Lệnh để chạy ứng dụng
+ENTRYPOINT ["java", "-jar", "app.jar"]
